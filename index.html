@@ -155,6 +155,17 @@ header.hd{position:sticky;top:0;z-index:70;background:var(--bg);border-bottom:1p
 .cnav[hidden]{display:none!important}
 @media(min-width:900px){.cnav{display:grid}}
 .cnav.prev{left:-14px} .cnav.next{right:-14px}
+/* ---- coming-soon hero ---- */
+.cshero{position:relative;background:#0A0A0B;border-bottom:1px solid var(--line);
+  min-height:clamp(360px,66vh,640px);display:grid;place-items:center;overflow:hidden}
+.cshero::before{content:"";position:absolute;inset:-25% -12%;pointer-events:none;
+  background:radial-gradient(48% 48% at 50% 46%, rgba(242,242,240,.14), rgba(242,242,240,.035) 46%, rgba(0,0,0,0) 72%)}
+.csin{position:relative;display:grid;justify-items:center;gap:clamp(20px,3.4vh,34px);text-align:center;
+  padding-inline:var(--pad)}
+.csmark{font-size:clamp(42px,11.5vw,152px);font-weight:200;letter-spacing:.17em;line-height:1;
+  margin:0;color:#F2F2F0;padding-left:.17em;white-space:nowrap}
+.csnote{font-family:var(--mono);font-size:clamp(9px,1.1vw,12px);letter-spacing:.36em;
+  text-transform:uppercase;color:var(--fg2);margin:0}
 /* ---- image hero ---- */
 .ihero{position:relative;background:#F1F1EF;border-bottom:1px solid var(--line);overflow:hidden;
   aspect-ratio:2/1;min-height:clamp(330px,54vh,600px);max-height:74vh}
@@ -725,10 +736,13 @@ function tList(){return `
  </div></section>`}
 
 function tHero(){
- const src=HERO_SRC||ASSETS.hero;
- const media=src.startsWith("data:video")
-   ? `<video src="${src}" autoplay muted loop playsinline preload="metadata"></video>`
-   : `<img src="${src}" alt="SAASH AI LED Mask and controller" width="2400" height="1200">`;
+ if(!HERO_SRC) return `<section class="cshero"><div class="csin">
+     <h1 class="csmark">SAASH</h1>
+     <p class="csnote">Revolution coming soon</p>
+   </div></section>`;
+ const media=HERO_SRC.startsWith("data:video")
+   ? `<video src="${HERO_SRC}" autoplay muted loop playsinline preload="metadata"></video>`
+   : `<img src="${HERO_SRC}" alt="SAASH" width="2400" height="1200">`;
  return `<section class="ihero">${media}
    <div class="iov">
      <p class="st">Three minutes. Every session the same.</p>
@@ -743,46 +757,15 @@ function tFilm(){return FILM_SRC ? `
 
 function pHome(){return `
  ${tHero()}
- <div class="wrap hero" style="padding-top:clamp(40px,7vh,84px)">
-   <h1 class="h2 rise">Light treatments.<br>Three minutes, at home.</h1>
-   <p class="lede rise2" style="margin-top:clamp(26px,4vh,40px)">Five devices for blemish-prone skin, cold sores and full-face care. One stated wavelength, one stated time, every session the same.</p>
-   <div class="herostats rise3">
-     <span class="mono">05 devices</span>
-     <span class="mono">3-minute sessions</span>
-     <span class="mono">Bought once · no refills</span>
-     <span class="mono">14-day returns</span>
-     <span class="mono">2-year warranty</span>
-   </div>
- </div>
  ${tFilm()}
-  <section class="sec"><div class="wrap">
-   <div class="shead"><h2 class="h2">Five products through 2027.<br>Fifteen further, to 2029.</h2></div>
+ <section class="sec flush"><div class="wrap">
+   <div class="shead"><h2 class="h2">Five products through 2027.</h2></div>
  </div>
  <div class="wrap">
    <div class="cardswrap">
-     <button class="cnav prev" id="cprev" aria-label="Previous products">‹</button>
+     <button class="cnav prev" id="cprev" aria-label="Previous products">&lsaquo;</button>
      <div class="cards" id="cards">${DEVICES.map(card).join("")}</div>
-     <button class="cnav next" id="cnext" aria-label="More products">›</button>
-   </div>
- </div></section>
- <section class="sec"><div class="wrap">
-   <div style="max-width:60ch">
-     <p class="mono" style="margin:0 0 18px">The record</p>
-     <h2 class="h2">One account,<br>every device.</h2>
-     <p class="lede" style="margin-top:22px">Every session writes to a single customer identity shared by the site, the application and each device. The devices acquire the customer. The record is what keeps them.</p>
-     <p style="margin-top:28px"><a class="btn ghost auto" href="#/technology">Technology <span aria-hidden="true">→</span></a></p>
-   </div>
- </div></section>
- <section class="sec"><div class="wrap">
-   <div class="shead"><p class="mono" style="margin:0 0 18px">Why it is built this way</p>
-     <h2 class="h2" style="max-width:20ch">A dose, not a mode dial.</h2></div>
-   <div class="three">
-     <div><p class="mono sm" style="margin:0 0 12px">You are told the dose</p>
-       <p class="body" style="font-size:15px">Nanometres and seconds, printed on every device. Not "Mode 2".</p></div>
-     <div><p class="mono sm" style="margin:0 0 12px">The same, every time</p>
-       <p class="body" style="font-size:15px">Nothing adapts silently, so a result you get is one you can repeat.</p></div>
-     <div><p class="mono sm" style="margin:0 0 12px">Bought once</p>
-       <p class="body" style="font-size:15px">No subscription, no refill, no cartridge every month.</p></div>
+     <button class="cnav next" id="cnext" aria-label="More products">&rsaquo;</button>
    </div>
  </div></section>
  ${tList()}`}
