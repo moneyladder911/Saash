@@ -819,29 +819,21 @@ function pDevice(id){
 function pTech(){return `
  <div class="wrap hero">
    ${eyerule("Technology")}
-   <h1 class="h2 rise">An instrument,<br>and the layer nobody owns.</h1>
-   <p class="lede rise2" style="margin-top:24px">Most personalisation in this category resolves to a preset, a menu or a photograph. We are building toward something narrower: a reading taken from the skin itself.</p>
+   <h1 class="h2 rise">An instrument,<br>not a filter.</h1>
+   <p class="lede rise2" style="margin-top:24px">Most personalisation in this category is a preset or a photograph. We are building a reading taken from the skin itself.</p>
  </div>
  <section class="sec"><div class="wrap two">
-   <div><p class="mono" style="margin:0 0 16px">Today</p><h2 class="h3">What the application does now</h2>
-     <p class="lede" style="margin-top:18px">It reads redness, pigmentation and texture from the camera and guides treatment zone by zone across the face. In beta, with production release ahead of launch.</p>
-     ${dl([["Method","Camera-derived"],["State","In beta"],["Release","Ahead of launch"]])}</div>
-   <div><p class="mono" style="margin:0 0 16px">In development</p><h2 class="h3">What this stage is building</h2>
-     <p class="lede" style="margin-top:18px">Skin-contact measurement — a reading taken from the skin rather than inferred from an image. Sensing hardware is integrated in the controller. The measurement science, and owning it rather than licensing it, is the funded objective.</p>
-     ${dl([["Method","Skin-contact sensing"],["Hardware","In the controller"],["State","In development"]])}</div>
- </div></section>
- <section class="sec"><div class="wrap two wide" style="align-items:center">
-   <div><p class="mono" style="margin:0 0 16px">The asset</p><h2 class="h2">The record<br>compounds.</h2>
-     <p class="lede" style="margin-top:22px">Every session writes to one account, shared by the site, the app and every device. Add a second device and your history carries over.</p></div>
-   ${artOf(DEVICES[2],"sq")}
+   <div>
+     <p class="mono" style="margin:0 0 14px">Today</p>
+     <p class="body" style="font-size:15px">The application reads redness, pigmentation and texture from the camera and guides treatment zone by zone. In beta.</p>
+   </div>
+   <div>
+     <p class="mono" style="margin:0 0 14px">In development</p>
+     <p class="body" style="font-size:15px">Skin-contact measurement, taken from the skin rather than inferred from an image. The funded objective of this stage.</p>
+   </div>
  </div></section>
  <section class="sec"><div class="wrap">
-   <div class="shead"><p class="mono" style="margin:0 0 16px">Stated plainly</p><h2 class="h3">What we are not claiming.</h2></div>
-   <div class="three">
-     <div><p class="mono sm" style="margin:0 0 12px">Measurement</p><p class="body" style="font-size:14.5px">The skin-contact measurement layer is in development. It does not ship today, and no product is sold on the basis of it.</p></div>
-     <div><p class="mono sm" style="margin:0 0 12px">Evidence</p><p class="body" style="font-size:14.5px">Published research cited here was conducted by third parties on other devices. It is the basis for a protocol specification, not evidence for a SAASH product.</p></div>
-     <div><p class="mono sm" style="margin:0 0 12px">Clearance</p><p class="body" style="font-size:14.5px">No device holds clearance at this time. Files are open in the United States and Europe, and nothing is sold until they are granted.</p></div>
-   </div>
+   <p class="body" style="font-size:15px">The measurement layer does not ship today, and no device holds clearance. <a href="#/regulatory" style="color:var(--fg);text-decoration:underline">Regulatory status</a></p>
  </div></section>`}
 
 function pHouse(){return `
@@ -868,96 +860,38 @@ function pHouse(){return `
  </div></section>`}
 
 function pContact(res,subj){
- const ROUTES=[
-  ["Orders and reservations","Reservation","Placing, changing or cancelling a reservation, and where a device stands in your market."],
-  ["Product questions","Product question","Wavelengths, protocols, compatibility, or whether a device suits what you are dealing with."],
-  ["Delivery and returns","Order or delivery","A parcel that has not moved, a return authorisation, or a warranty claim."],
-  ["Press","Press","Interviews, imagery, specifications and the evidence pack. We answer press directly."],
-  ["Retail and distribution","Retail and distribution","Wholesale, concession and distribution enquiries for the United States, the Emirates and Europe."],
-  ["Privacy requests","Privacy request","Access, correction, deletion or export of your data, including your skin record."]];
- const bag=BAG.map(i=>DEVICES.find(d=>d.id===i.id)).filter(Boolean);
  const pre=subj||(res?"Reservation":"Product question");
+ const bag=BAG.map(i=>DEVICES.find(d=>d.id===i.id)).filter(Boolean);
  return `
  <div class="wrap hero">
    ${eyerule("Contact")}
    <h1 class="h2 rise">${res?"Reserve your devices.":"Write to us."}</h1>
    <p class="lede rise2" style="margin-top:24px">${res
-     ?"A reservation is not a purchase and is not charged. It tells us which market and which device to prioritise, and holds your place for when the device clears."
-     :"One inbox, answered by the people who made the thing. We reply to everything, usually within two working days."}</p>
-   <div class="herostats rise3">
-     <span class="mono">Reply within 2 working days</span>
-     <span class="mono">Dubai · GST (UTC+4)</span>
-     <span class="mono">English · Arabic · Serbian</span>
-   </div>
+     ?"A reservation is not a purchase and is not charged. It holds your place for when the device clears."
+     :"One inbox. We reply within two working days."}</p>
  </div>
-
- <section class="sec"><div class="wrap">
-   <p class="mono" style="margin:0 0 22px">What is it about</p>
-   <div class="routes">${ROUTES.map(([t,s,d])=>`
-     <a class="route" href="#/contact?s=${encodeURIComponent(s)}">
-       <span class="rt">${esc(t)}</span>
-       <span class="rd">${esc(d)}</span>
-       <span class="rl">Write about this →</span>
-     </a>`).join("")}</div>
- </div></section>
-
  <section class="sec"><div class="wrap two">
-   <div>
-     ${res&&bag.length?`<div class="bagsum">
-       <p class="mono sm" style="margin:0 0 10px;color:var(--fg3)">Reserving</p>
-       ${BAG.map(i=>{const d=DEVICES.find(x=>x.id===i.id);return d?`<div class="li"><span>${esc(d.name)} × ${i.q}</span><span>${d.usd?"USD "+fmt(d.usd*i.q):"—"}</span></div>`:""}).join("")}
-       <div class="li" style="border-top:1px solid var(--line);margin-top:8px;padding-top:12px">
-         <span style="color:var(--fg)">Subtotal</span><span>USD ${fmt(bagTotal())}</span></div>
-     </div>`:""}
-     <form class="fieldset rise2" id="cf" style="max-width:none" novalidate>
-       <div class="fld"><label class="mono sm" for="cn">Name</label>
-         <input class="inp" id="cn" name="name" type="text" placeholder="Your name" autocomplete="name"></div>
-       <div class="fld"><label class="mono sm" for="ce">Email</label>
-         <input class="inp" id="ce" name="email" type="email" placeholder="you@example.com" autocomplete="email" required></div>
-       <div class="fld"><label class="mono sm" for="cs">Subject</label>
-         <select class="inp" id="cs" name="subject">${
-           ["Reservation","Product question","Order or delivery","Returns or warranty","Press","Retail and distribution","Privacy request","Adverse event","Something else"]
-           .map(s=>`<option${s===pre?" selected":""}>${esc(s)}</option>`).join("")}</select></div>
-       <div class="fld"><label class="mono sm" for="cm">Market</label>
-         <select class="inp" id="cm" name="market">${
-           ["United States","United Arab Emirates","United Kingdom","European Union","Elsewhere"]
-           .map(s=>`<option>${esc(s)}</option>`).join("")}</select></div>
-       <div class="fld"><label class="mono sm" for="cd">Device</label>
-         <select class="inp" id="cd" name="device"><option value="">No particular device</option>${
-           DEVICES.map(d=>`<option value="${d.id}">${d.code} · ${esc(d.name)}</option>`).join("")}</select></div>
-       <div class="fld"><label class="mono sm" for="cx">Message</label>
-         <textarea class="inp" id="cx" name="message" placeholder="Tell us what you need. The more specific, the faster we can answer."></textarea></div>
-       <button class="btn" type="submit">Send</button>
-       <p class="msg" id="cfm" role="status" aria-live="polite"></p>
-     </form>
-   </div>
+   <form class="fieldset rise2" id="cf" style="max-width:none" novalidate>
+     ${res&&bag.length?`<p class="mono sm" style="margin:0;color:var(--fg3)">Reserving ${bag.map(d=>esc(d.name)).join(", ")}</p>`:""}
+     <div class="fld"><label class="mono sm" for="ce">Email</label>
+       <input class="inp" id="ce" name="email" type="email" placeholder="you@example.com" autocomplete="email" required></div>
+     <div class="fld"><label class="mono sm" for="cs">Subject</label>
+       <select class="inp" id="cs" name="subject">${
+         ["Reservation","Product question","Order or delivery","Returns or warranty","Press","Retail and distribution","Privacy request","Adverse event"]
+         .map(s=>`<option${s===pre?" selected":""}>${esc(s)}</option>`).join("")}</select></div>
+     <div class="fld"><label class="mono sm" for="cx">Message</label>
+       <textarea class="inp" id="cx" name="message" placeholder="Tell us what you need."></textarea></div>
+     <button class="btn" type="submit">Send</button>
+     <p class="msg" id="cfm" role="status" aria-live="polite"></p>
+   </form>
    <div>
      <div class="card">
-       <p class="mono sm" style="margin:0 0 12px;color:var(--fg3)">The house</p>
-       <p class="body" style="font-size:14.5px;margin:0">SAASH<br>Dubai, United Arab Emirates</p>
-       <p class="body" style="font-size:13.5px;margin:14px 0 0">Registered particulars and the address for legal notices are issued on request, and will be published here before the first sale.</p>
-     </div>
-     <div class="card">
-       <p class="mono sm" style="margin:0 0 12px;color:var(--fg3)">When we reply</p>
-       <div class="dl" style="margin-top:0">
-         <div class="r"><span class="k">General</span><span class="v">2 working days</span></div>
-         <div class="r"><span class="k">Press</span><span class="v">Same day, where we can</span></div>
-         <div class="r"><span class="k">Privacy requests</span><span class="v">Within one month</span></div>
-         <div class="r" style="border-bottom:0"><span class="k">Adverse events</span><span class="v">Immediately</span></div>
-       </div>
+       <p class="mono sm" style="margin:0 0 12px;color:var(--fg3)">SAASH</p>
+       <p class="body" style="font-size:14.5px;margin:0">Dubai, United Arab Emirates</p>
      </div>
      <div class="card">
        <p class="mono sm" style="margin:0 0 12px;color:var(--fg3)">Adverse events</p>
-       <p class="body" style="font-size:14.5px;margin:0">If you experience an adverse event involving one of our devices, write to us and set the subject to <strong>Adverse event</strong>. We maintain a vigilance record and will report to the competent authority as required. Do not wait for a reply before seeking medical advice.</p>
-     </div>
-     <div class="card">
-       <p class="mono sm" style="margin:0 0 14px;color:var(--fg3)">Before you write</p>
-       <p class="body" style="font-size:14.5px;margin:0 0 14px">These answer most of what reaches us.</p>
-       <a href="#/using" style="display:block;padding:6px 0;font-size:14px;color:var(--fg2)">Using the devices →</a>
-       <a href="#/delivery" style="display:block;padding:6px 0;font-size:14px;color:var(--fg2)">Delivery →</a>
-       <a href="#/returns" style="display:block;padding:6px 0;font-size:14px;color:var(--fg2)">Returns →</a>
-       <a href="#/warranty" style="display:block;padding:6px 0;font-size:14px;color:var(--fg2)">Warranty →</a>
-       <a href="#/regulatory" style="display:block;padding:6px 0;font-size:14px;color:var(--fg2)">Regulatory status →</a>
+       <p class="body" style="font-size:14.5px;margin:0">Set the subject to <strong>Adverse event</strong>. Do not wait for a reply before seeking medical advice.</p>
      </div>
    </div>
  </div></section>`}
