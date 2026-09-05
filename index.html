@@ -133,7 +133,9 @@ header.hd{position:sticky;top:0;z-index:70;background:var(--bg);border-bottom:1p
 @media(min-width:1060px){.cardgrid{grid-template-columns:repeat(3,1fr)}}
 .pcard{background:#F8F8F6;border-radius:16px;padding:20px 20px 22px;color:#12120F;
   display:flex;flex-direction:column;transition:transform .45s var(--ease)}
-.cards .pcard{flex:0 0 clamp(250px,29vw,340px);scroll-snap-align:start}
+.cards .pcard{scroll-snap-align:start;flex:0 0 84%}
+@media(min-width:700px){.cards .pcard{flex:0 0 calc((100% - 14px)/2)}}
+@media(min-width:1060px){.cards .pcard{flex:0 0 calc((100% - 28px)/3)}}
 .pcard:hover{transform:translateY(-4px)}
 .pctop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;min-height:38px}
 .pcat{font-size:clamp(25px,2.5vw,34px);font-weight:600;letter-spacing:-.035em;line-height:.95;
