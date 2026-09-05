@@ -1,0 +1,376 @@
+<title>What Survives Diligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#F6F7F9; --surface:#FFFFFF; --raised:#EDF0F4;
+  --ink:#12161C; --body:#2C333D; --muted:#616B79; --faint:#8B94A1;
+  --rule:#DCE1E8; --rule-soft:#E8ECF1;
+  --accent:#8C2F39; --accent-soft:#F3E4E5;
+  --pass:#A32E2E; --pass-bg:#F7E6E5;
+  --cond:#8A6410; --cond-bg:#F8EEDC;
+  --good:#2C6350; --good-bg:#E2EFE9;
+  --shadow:0 1px 2px rgba(18,22,28,.05),0 8px 24px -16px rgba(18,22,28,.18);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0D1015; --surface:#141920; --raised:#1B212A;
+  --ink:#E9ECF1; --body:#C3CAD4; --muted:#8C96A4; --faint:#6B7583;
+  --rule:#252C36; --rule-soft:#1E242D;
+  --accent:#D98289; --accent-soft:#2A1A1D;
+  --pass:#E08A87; --pass-bg:#2B1817;
+  --cond:#D8AC5C; --cond-bg:#2A2114;
+  --good:#7FBFA5; --good-bg:#152420;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.7);
+}}
+:root[data-theme="dark"]{
+  --paper:#0D1015; --surface:#141920; --raised:#1B212A;
+  --ink:#E9ECF1; --body:#C3CAD4; --muted:#8C96A4; --faint:#6B7583;
+  --rule:#252C36; --rule-soft:#1E242D;
+  --accent:#D98289; --accent-soft:#2A1A1D;
+  --pass:#E08A87; --pass-bg:#2B1817;
+  --cond:#D8AC5C; --cond-bg:#2A2114;
+  --good:#7FBFA5; --good-bg:#152420;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--body);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px 96px}
+.col{max-width:672px}
+h1,h2,h3,h4{font-family:Newsreader,Georgia,serif;color:var(--ink);text-wrap:balance;margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+.num{font-variant-numeric:tabular-nums}
+
+/* masthead */
+.mast{border-bottom:1px solid var(--rule);padding:64px 0 34px;margin-bottom:44px}
+.kicker{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--accent);font-weight:500}
+h1{font-size:clamp(38px,6.2vw,62px);line-height:1.04;font-weight:500;letter-spacing:-.02em;margin:20px 0 0}
+.dek{font-size:19px;line-height:1.5;color:var(--muted);max-width:660px;margin:18px 0 0;font-weight:400}
+.meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.05em;color:var(--faint);text-transform:uppercase}
+
+/* answer band */
+.answer{background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+  box-shadow:var(--shadow);padding:34px 36px;margin-bottom:56px}
+.answer .lede{font-family:Newsreader,serif;font-size:25px;line-height:1.36;color:var(--ink);
+  font-weight:500;margin:0 0 14px;text-wrap:balance}
+.answer p{margin:0 0 14px;max-width:66ch}
+.answer p:last-of-type{margin-bottom:0}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:1px;
+  background:var(--rule-soft);border-top:1px solid var(--rule);margin-top:30px}
+.tile{background:var(--surface);padding:20px 18px}
+.tile .v{font-family:"IBM Plex Mono",monospace;font-size:30px;font-weight:500;color:var(--ink);
+  line-height:1;font-variant-numeric:tabular-nums}
+.tile .v.bad{color:var(--pass)} .tile .v.ok{color:var(--good)}
+.tile .l{font-size:12.5px;color:var(--muted);margin-top:9px;line-height:1.4}
+
+/* sections */
+section{margin-bottom:60px;scroll-margin-top:20px}
+.snum{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;
+  color:var(--faint);text-transform:uppercase;display:block;margin-bottom:10px}
+h2{font-size:clamp(26px,3.4vw,34px);font-weight:500;letter-spacing:-.015em;line-height:1.18}
+h3{font-size:20.5px;font-weight:600;margin:36px 0 10px;line-height:1.3}
+h4{font-family:"IBM Plex Sans",sans-serif;font-size:14px;font-weight:600;color:var(--ink);
+  margin:26px 0 8px;letter-spacing:.005em}
+p{margin:0 0 16px}
+.col p,.col ul,.col ol{max-width:68ch}
+strong{color:var(--ink);font-weight:600}
+em{font-style:italic}
+a{color:var(--accent)}
+ul,ol{padding-left:22px;margin:0 0 16px}
+li{margin-bottom:9px}
+hr{border:0;border-top:1px solid var(--rule);margin:44px 0}
+
+/* tables */
+.scroll{overflow-x:auto;margin:22px 0 26px;border:1px solid var(--rule);border-radius:3px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;text-align:left;padding:13px 16px;
+  border-bottom:1px solid var(--rule);white-space:nowrap;background:var(--raised)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.who{font-weight:600;color:var(--ink);white-space:nowrap}
+tr.hi td{background:var(--accent-soft)}
+
+.pill{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:2px;white-space:nowrap}
+.p-pass{background:var(--pass-bg);color:var(--pass)}
+.p-cond{background:var(--cond-bg);color:var(--cond)}
+.p-good{background:var(--good-bg);color:var(--good)}
+
+/* claim blocks */
+.claim{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--pass);
+  border-radius:2px;padding:26px 28px;margin:24px 0}
+.claim.ok{border-left-color:var(--good)}
+.claim h3{margin-top:0}
+.claim p:last-child,.claim ul:last-child{margin-bottom:0}
+.tag{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--pass);font-weight:600;display:block;margin-bottom:7px}
+.claim.ok .tag{color:var(--good)}
+blockquote{margin:0 0 16px;padding:10px 0 10px 18px;border-left:2px solid var(--rule);
+  font-family:Newsreader,serif;font-size:18px;font-style:italic;color:var(--muted)}
+
+/* questions */
+.q{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule-soft)}
+.q:last-child{border-bottom:0}
+.q .i{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);font-weight:600;
+  flex:0 0 auto;padding-top:3px}
+.q .t{font-family:Newsreader,serif;font-size:18.5px;line-height:1.45;color:var(--ink)}
+.q .t span{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:13.5px;
+  color:var(--muted);font-style:normal;margin-top:6px;line-height:1.5}
+
+/* fix list */
+.fixes{counter-reset:f;list-style:none;padding:0}
+.fixes li{counter-increment:f;position:relative;padding-left:38px;margin-bottom:14px}
+.fixes li::before{content:counter(f);position:absolute;left:0;top:1px;
+  font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;color:var(--accent);
+  background:var(--accent-soft);width:24px;height:24px;border-radius:2px;
+  display:grid;place-items:center}
+.band{background:var(--raised);border:1px solid var(--rule);border-radius:3px;padding:24px 28px;margin:26px 0}
+.band h4{margin-top:0}
+.foot{border-top:1px solid var(--rule);padding-top:26px;margin-top:70px;
+  font-size:13px;color:var(--faint);max-width:70ch}
+@media(max-width:640px){
+  .wrap{padding:0 18px 64px}.answer{padding:26px 22px}.claim{padding:22px 20px}
+  .mast{padding-top:44px}
+}
+</style><style>
+.snum{color:var(--good)}
+.asset{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--good);
+  border-radius:2px;padding:18px 20px;margin:14px 0}
+.asset h5{font-family:Newsreader,serif;font-size:17.5px;font-weight:600;color:var(--ink);
+  margin:0 0 7px;line-height:1.28}
+.asset .src{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--good);font-weight:600;display:block;margin-bottom:7px}
+.asset p:last-child,.asset ul:last-child{margin-bottom:0}
+.buys{background:var(--good-bg);border-radius:2px;padding:9px 12px;margin-top:10px;font-size:13.5px;
+  color:var(--ink)}
+.buys strong{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--good);display:block;margin-bottom:3px;font-weight:600}
+.guard{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--cond);
+  border-radius:2px;padding:18px 20px;margin:14px 0}
+.guard h5{font-family:Newsreader,serif;font-size:17px;font-weight:600;color:var(--ink);margin:0 0 7px}
+.guard p:last-child{margin-bottom:0}
+.pitch{background:var(--raised);border:1px solid var(--rule);border-radius:2px;padding:22px 26px;margin:18px 0}
+.pitch p{font-family:Newsreader,serif;font-size:18px;line-height:1.55;color:var(--ink);margin:0}
+.order{counter-reset:o;list-style:none;padding:0;margin:16px 0}
+.order li{counter-increment:o;position:relative;padding-left:44px;margin-bottom:14px;min-height:30px}
+.order li::before{content:counter(o);position:absolute;left:0;top:0;
+  font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--good);
+  background:var(--good-bg);width:30px;height:30px;border-radius:2px;display:grid;place-items:center}
+.order .t{font-family:Newsreader,serif;font-size:17px;color:var(--ink);font-weight:600;display:block;margin-bottom:3px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sm{font-size:.94em}
+ul.tight{margin:0;padding-left:18px} ul.tight li{margin-bottom:5px}
+@media(max-width:640px){.two{grid-template-columns:1fr}}
+</style>
+<div class="wrap">
+<header class="mast">
+  <span class="kicker" style="color:var(--good)">Counterpart to the Rewrite Pack</span>
+  <h1>What Survives Diligence</h1>
+  <p class="dek">Eleven sealed analysts spent two passes trying to break this deck. These are the things they could not break — what each one is actually worth in a meeting, and the order to lead with them.</p>
+  <div class="meta"><span>4 September 2026</span><span>Assets verified, not asserted</span><span>Not financial advice</span></div>
+</header>
+
+<div class="answer">
+  <p class="lede">An adversarial process reports what fails. It is silent about what holds — which leaves a distorted picture of the company.</p>
+  <p>Everything below survived deliberate attempts to falsify it by analysts who were paid, in effect, to find the opposite. That is a much stronger warrant than "the deck says so." <strong>These are not consolations. They are the assets the raise should be built on</strong>, and several of them are things most pre-revenue hardware companies simply do not have.</p>
+  <p>The rewrite pack says what to change. This says what to keep, what each item buys you, and — in the last section — what it does not buy, so the case stays honest when it is challenged.</p>
+</div>
+
+<section>
+  <span class="snum">01 — The asset register</span>
+  <h2>Seven things that held under attack</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Asset</th><th>How it was tested</th><th>What it buys you</th></tr></thead>
+    <tbody>
+      <tr><td class="who">Arithmetic integrity</td><td>Every figure recomputed independently, both versions</td><td>Credibility that survives a modelling session</td></tr>
+      <tr><td class="who">Factory costing</td><td>Independent bottom-up BOM at 2,000 units</td><td>The cost line stops being a question</td></tr>
+      <tr><td class="who">Tariff position</td><td>Decomposed against HTS codes and §301 actions</td><td>Signals operator-grade diligence</td></tr>
+      <tr><td class="who">Category evidence</td><td>Every cited figure checked against filings</td><td>The market question is already answered</td></tr>
+      <tr><td class="who">Tooled product</td><td>Tooling cost and lead times benchmarked</td><td>Sunk, founder-funded, real</td></tr>
+      <tr><td class="who">Established modalities</td><td>Trials and FDA pathways traced to source</td><td>No novel-science risk to underwrite</td></tr>
+      <tr><td class="who">Margin robustness</td><td>Stress-tested to 60% duty</td><td>Input shocks cannot break the model</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <span class="snum">02 — The five that matter most</span>
+  <h2>In the order an investor will value them</h2>
+
+  <div class="asset">
+    <span class="src">Verified — recomputed twice, both versions</span>
+    <h5>Every number ties. This is a rigour-clean deck.</h5>
+    <p>Contribution reconciles to gross margin on every SKU. US→UAE deltas reconcile exactly to the duty differential. Landed cost tallies to $190.97. The ladder math ties to the cent. Nothing is rounded in your favour and no figure appears that cannot be traced back.</p>
+    <p><strong>Why this is worth more than it sounds:</strong> it separates an assumptions problem from a rigour problem. A deck whose arithmetic fails tells an investor the founders cannot model. A deck whose arithmetic holds but whose inputs are optimistic tells them the founders can model and need market data. <strong>The second is a fundable condition. The first is not.</strong></p>
+    <div class="buys"><strong>What it buys</strong>The ability to survive a live modelling session — the meeting where most pre-revenue decks die.</div>
+  </div>
+
+  <div class="asset">
+    <span class="src">Verified — independent BOM, 2,000-unit basis</span>
+    <h5>The factory costing is honest, and probably conservative</h5>
+    <p>An independent bottom-up build — 213 tri-die packages, rigid-flex PCB, PCBA labour, medical silicone, controller, sensing front end, battery, packaging, assembly and QC — lands at <strong>$85–155 ex-factory after factory margin.</strong> The deck's $135 sits upper-middle in that band.</p>
+    <p>And it is quoted at <strong>minimum order quantity, before any scale curve.</strong> Most decks quote the cost they hope to reach at 50,000 units. This is the opposite of the usual sin, and a manufacturing-literate investor will notice within thirty seconds.</p>
+    <div class="buys"><strong>What it buys</strong>The cost line stops being a line of questioning. Say the 2k basis out loud — the conservatism is the point.</div>
+  </div>
+
+  <div class="asset">
+    <span class="src">Verified — HTS classification and §301 actions traced</span>
+    <h5>The tariff work is expert, and rare</h5>
+    <p>40.1% decomposes exactly: <strong>2.6% MFN + 25% Section 301 List 3 + 12.5% Section 301 forced-labor</strong> effective 24 July 2026 — current to within weeks of the deck's date. More telling, the <em>classification</em> is right: <strong>HTS 8543.70.96, not 9018</strong>, matching CBP ruling N246248. That is a detail most founders get wrong.</p>
+    <p>The reviewing analyst called this "the single most credibility-earning detail in the deck."</p>
+    <div class="buys"><strong>What it buys</strong>A signal of operator-grade diligence that transfers to everything else you claim. Keep it on unit economics — just stop framing it as a moat.</div>
+  </div>
+
+  <div class="asset">
+    <span class="src">Verified — checked against filings and FDA records</span>
+    <h5>The category evidence is accurate and well chosen</h5>
+    <p>TBTG's £141.0m, 62.7% gross margin, 26.6% adjusted EBITDA, £300m October 2025 listing and raised ≥£170m guidance — all confirmed. SharkNinja's >$70m against a $35m tracked category — confirmed. BeautyHealth's 65.3% and 71% consumables — confirmed. Both competitor 510(k) numbers, <strong>K242796 and K242593, are real and correctly cited.</strong> Sourcing footnotes with dates on every slide.</p>
+    <p>A pure-play listing at £300m on 39% growth, and a $70m mask market appearing from nothing in a year, is a genuinely strong category argument — and it is <em>disclosed, audited third-party data</em>, not analyst projections.</p>
+    <div class="buys"><strong>What it buys</strong>"Is this a real category?" is already answered before the meeting starts. Very few consumer decks can say that.</div>
+  </div>
+
+  <div class="asset">
+    <span class="src">Verified — trials and pathways traced to source</span>
+    <h5>The science is established, not invented — and so are the pathways</h5>
+    <p>The 1072nm cold sore protocol rests on genuine double-blind placebo-controlled trials (<strong>Hargate 2006</strong>; <strong>Dougal &amp; Lee 2013</strong>) with an established regulatory route via De Novo <strong>DEN090012</strong> → 21 CFR 878.4860. 415nm blue for acne has numerous cleared predicates. The regulatory finding was that the <em>timeline</em> is wrong — but also, in the analyst's own words, that <strong>"the pathways are real and cheap."</strong></p>
+    <p>That is a meaningful distinction. You are not asking anyone to underwrite novel science or an unproven modality — only execution against known routes.</p>
+    <div class="buys"><strong>What it buys</strong>No technology risk to price. The remaining risk is commercial and procedural, which is the kind investors know how to fund.</div>
+  </div>
+</section>
+
+<section>
+  <span class="snum">03 — Two more, quieter but real</span>
+  <h2>Robustness, and a strategic instinct that is right</h2>
+  <div class="two">
+    <div class="asset">
+      <span class="src">Verified — stress-tested</span>
+      <h5>Input shocks cannot break this model</h5>
+      <p class="sm">Because ex-factory is only <strong>17% of retail</strong>, every 10 points of duty costs just 1.7 points of gross margin. At 60% duty, gross margin still holds ~72% and contribution ~56%. And the mask's break-even CAC of <strong>$489 tolerates a 72% miss</strong> on the current assumption.</p>
+      <p class="sm">There is a viable business inside this portfolio at a wide range of input values. The question is which door you walk through, not whether one exists.</p>
+    </div>
+    <div class="asset">
+      <span class="src">Sound strategy, wrong direction</span>
+      <h5>Portfolio amortisation is how the good ones work</h5>
+      <p class="sm">Buying a customer once and monetising across a range is genuinely how the best DTC hardware businesses are built. The criticism was about <em>direction</em> (lead with the mask) and <em>disclosure</em> (label the attach rate) — <strong>never about the concept.</strong></p>
+      <p class="sm">Similarly, the Chalhoub reasoning — that one counterparty controlling half the UAE cosmetics market makes DTC structural rather than a margin preference — is a real insight about channel power, and it reads as commercial judgement.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="snum">04 — The intangible</span>
+  <h2>What the revision proved about the founders</h2>
+  <div class="col">
+    <p>If I were writing a cheque, I would weight this heavily, and it is the one asset that cannot be built later.</p>
+    <p>Handed hard diligence, <strong>you deleted your most attractive claims.</strong> The Courage + Khazaka validation, the melanin-independence differentiator, the sebum sensing, the Fitzpatrick I–VI line — those were the best sentences in v1, and they were cut rather than softened. You then <em>volunteered</em> a weakness that nobody would have known to ask about: <strong>"No clearance held yet,"</strong> and added regulatory to the named risk list.</p>
+    <p>Most founders defend. Some soften. Very few delete and disclose. <strong>That is information about how you will behave when a board delivers bad news</strong> — and coachability is something investors actively underwrite, because it is the difference between a company that corrects and one that compounds its errors.</p>
+    <p>You also upgraded your own strategic thinking between versions: moving the differentiator from "we have a sensor" to <strong>"one record across the portfolio"</strong> is a genuinely better thesis. The claim needs narrowing, but the instinct is right — a cross-device longitudinal record <em>is</em> the more defensible layer.</p>
+    <p class="sm" style="color:var(--muted)"><em>Stated as inference rather than fact: it is a reading of two documents, not of you. But it is the kind of inference that gets a second meeting, and it is worth making explicit rather than hoping it is noticed.</em></p>
+  </div>
+</section>
+
+<section>
+  <span class="snum">05 — The bull case</span>
+  <h2>Written out, so you can say it</h2>
+  <div class="pitch">
+    <p>"A founder-funded team has taken devices to tooled production sampling with factory costing quoted at minimum order quantity and tariff work accurate to the week. The category is proven by disclosed numbers, not projections — a pure-play just listed at £300m on 39% growth, and a $70m mask market appeared from nothing in a year. The modalities are established and the regulatory pathways are known and narrow, so there is no novel science to underwrite. The unit economics survive a 60% duty and a 72% miss on acquisition cost. What we need funded is not more product. It is a real acquisition number, a regulatory lead, and the measurement layer."</p>
+  </div>
+  <div class="col"><p>That paragraph is defensible line by line. Every claim in it was checked by someone trying to break it.</p></div>
+</section>
+
+<section>
+  <span class="snum">06 — Deployment</span>
+  <h2>Lead with the assets, not the ambition</h2>
+  <div class="col">
+    <ol class="order">
+      <li><span class="t">Open with the category, in disclosed numbers</span>TBTG at £300m, SharkNinja's $70m from a $35m base. Third-party audited data answers "is this real?" before you have to argue for anything.</li>
+      <li><span class="t">Then the product, as sunk cost</span>Tooled, in production sampling, founder-funded. This is the credibility that most pre-revenue decks cannot buy at any price.</li>
+      <li><span class="t">Then the unit economics, with the conservatism said out loud</span>"$135 at a 2,000-unit MOQ, before any scale curve." Then the tariff decomposition. This is where the room decides whether you are an operator.</li>
+      <li><span class="t">Then the risk, plainly</span>No clearance yet. No revenue. Here is the CAC range we believe and the range we are funding ourselves to measure. <strong>Volunteering this is now your strongest move</strong>, because it is the one thing the room is not expecting.</li>
+      <li><span class="t">Then the ask, sized to the evidence</span>One market, one device, a real acquisition number in ninety days, a filed 510(k). The $20M becomes the next round, priced on results.</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <span class="snum">07 — Guardrail</span>
+  <h2>What these assets do not buy</h2>
+  <div class="col"><p>Stating this yourself is what keeps the rest credible. An investor who finds these unprompted discounts everything above; an investor who hears them from you discounts nothing.</p></div>
+  <div class="two">
+    <div class="guard">
+      <h5>They do not buy the $20M</h5>
+      <p class="sm">Rigour, tooling and category evidence are seed-stage assets. A Series A is priced on revenue, and there is none. These justify a strong seed at a fair price — not a round sized for two markets, twenty people and a global ambassador.</p>
+    </div>
+    <div class="guard">
+      <h5>They do not answer the demand question</h5>
+      <p class="sm">Nothing verified above is evidence that customers will pay. The costing, the tariff work and the category data are all upstream of the only question that matters. <strong>Honest costing is not traction.</strong></p>
+    </div>
+    <div class="guard">
+      <h5>They do not substitute for the team gap</h5>
+      <p class="sm">The deck now leans harder on regulatory filings and on building a measurement layer — with no regulatory lead and no sensing engineer named. Good arithmetic does not file a 510(k). This gap widened, not narrowed.</p>
+    </div>
+    <div class="guard">
+      <h5>They do not make the defensibility argument</h5>
+      <p class="sm">Tooling and predicates are a head start, not a moat — a real 2–4 months, not 12–20. The durable asset is the cross-device record, and it does not exist yet.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="snum">08 — Recommendations</span>
+  <h2>What to actually do, in order of return</h2>
+  <div class="col"><p>Ordered by value per pound and per week, not by size. The first four cost almost nothing and are not blocked by the raise.</p></div>
+
+  <div class="asset">
+    <span class="src">Do this month — capital not required</span>
+    <h5>Four moves you can make before you speak to anyone else</h5>
+    <ul class="tight">
+      <li><strong>File the CDRH Small Business Determination.</strong> It must be granted <em>before</em> any submission, it is fiscal-year specific, and it takes 30–60 days you are currently not spending. It also cuts the standard 510(k) user fee from <strong>$26,067 to $6,517 per device.</strong> Nothing on your critical path is cheaper to start, and it is pure calendar you never get back.</li>
+      <li><strong>Get the clearance position in writing from the ODM.</strong> Either a Letter of Authorization naming which test reports transfer, or an assignment of the clearance. <strong>This single document determines whether your regulatory story is an owned asset or a supplier relationship</strong> — and an investor will ask.</li>
+      <li><strong>Rename the MagSafe device.</strong> MAGSAFE is a registered Apple trademark; unlicensed products must say "compatible." Free to fix now, expensive after packaging and marketing spend.</li>
+      <li><strong>Correct the four falsifiable claims</strong> flagged in the reassessment. Hours of work, and each one is a meeting you would otherwise lose in the room.</li>
+    </ul>
+  </div>
+
+  <div class="asset">
+    <span class="src">Decide before you raise — strategic</span>
+    <h5>Three decisions only you can make</h5>
+    <ul class="tight">
+      <li><strong>Pick a side of the pincer, and we would pick the mask.</strong> Your own figures say the ladder only overtakes mask-first above 12.7% attach against an ~8% base rate; that leading with the mask moves the odds of a cohort returning its cash from 32% to 81%; and that <em>only the mask carries the sensors</em>, so leading with Blemish delays the data asset until an order two most customers never place. Mask-first also uses the number with the most headroom — $489 break-even against a $284 assumption.</li>
+      <li><strong>Decide what the measurement layer physically is — and if it needs a consumable, that is not a problem, it is the business model.</strong> This is the most valuable unexploited idea in the deck. Four durable devices produce one order and silence; a consumable turns the portfolio into recurring revenue and answers the retention question the whole model rests on. BeautyHealth's 71%-consumables figure is on your own slide 4. <strong>If the sebum reading requires a cartridge, put it in the model and lead with it.</strong></li>
+      <li><strong>Cut the ask to $4–6M against named milestones, and take super-pro-rata rights.</strong> A $20M pre-revenue ask has one outcome. The same investor, offered a milestone-tranched seed with the right to lead the $20M twelve months later on evidence, becomes contractually motivated to fund you — at roughly half the dilution, for the same destination.</li>
+    </ul>
+  </div>
+
+  <div class="asset">
+    <span class="src">Where to spend, in priority order</span>
+    <h5>Three uses of money that change the raise</h5>
+    <ul class="tight">
+      <li><strong>$50–100k on a live CAC test in one market. This is the highest-return money the company can spend</strong> — probably by an order of magnitude. A measured number from two thousand real orders is worth more than every other slide combined, because it converts the one unresolved variable into evidence. Do it before you raise, not with the raise.</li>
+      <li><strong>Hire the regulatory lead before the commercial operator.</strong> A delayed or failed 510(k) is terminal; a slow first sales quarter is not. The deck currently names the wrong first hire, and that single line tells an experienced investor you have mis-ranked your own risks.</li>
+      <li><strong>Run a small adaptive-dosing pilot.</strong> No published trial anywhere tests LED protocols adapted to skin readings — which means the evidence gap under your central thesis is also <em>unclaimed territory</em>. A modest study would make you the only company in the category with data on the thing you say matters most. Cheap, slow to start, so start it now.</li>
+    </ul>
+  </div>
+
+  <div class="asset">
+    <span class="src">Structural — before money moves</span>
+    <h5>Two things that gate institutional capital</h5>
+    <ul class="tight">
+      <li><strong>Add a topco in ADGM, DIFC or Delaware.</strong> On mainland UAE, liquidation preference and drag rights are largely untested. Many funds cannot invest regardless of how good the company is — this is a gating item, not a preference.</li>
+      <li><strong>Build the financial model.</strong> Forecast, burn, runway, unit volumes, cap table. Percentages of a pie with no timeline are not a use of proceeds, and its absence is conspicuous in a deck that is otherwise this numerate.</li>
+    </ul>
+  </div>
+
+  <div class="pitch">
+    <p><strong>If you do only one thing:</strong> spend $50–100k proving CAC in one market, then raise on the number. Every asset in this document is upstream of demand — and demand is the only thing nobody can verify for you.</p>
+  </div>
+</section>
+
+<p class="foot">Companion to the panel report and the slide rewrite pack. Assets listed here survived two adversarial passes — eight sealed agents on the first deck, three verification agents on the revision — each attempting to falsify the claims with live sources. Verification establishes that a claim holds against public evidence; it is not an audit of the underlying business, and it is not financial advice. Recommendations are judgements, not findings. Figures should be re-checked against source before going in front of an investor.</p>
+</div>

@@ -1,0 +1,46 @@
+=== WHAT THE $20M IMPLIES (deck states none of this) ===
+
+  Inventory/production            35.0%  $   7,000,000
+  Marketing/brand                 30.0%  $   6,000,000
+  R&D/new products                12.5%  $   2,500,000
+  Team/international              12.5%  $   2,500,000
+  Platform/regulatory/reserve     10.0%  $   2,000,000
+
+Landed cost per unit (from deck gross margins):
+  Blemish      $  38.25
+  Cold Sore    $  38.19
+  AI LED Mask  $ 191.18
+  Cryo         $  78.05
+
+Assumed unit mix {'Blemish': 0.4, 'Cold Sore': 0.25, 'AI LED Mask': 0.2, 'Cryo': 0.15}
+  avg landed $74.79 | avg price $326.00 | avg contribution ~$200.49
+  $7,000,000 inventory buys ~93,594 units = ~$30,511,693 of retail value
+
+=== CAN THE MARKETING BUDGET SELL THAT INVENTORY? ===
+  Marketing budget $6,000,000. Orders needed to clear inventory: ~93,594
+
+     CAC   customers funded   % of inventory sold   rev @1 order  gross contrib   net of mktg
+  $   80             75,000                   80% $   24,450,000 $   15,036,750 $   9,036,750
+  $  120             50,000                   53% $   16,300,000 $   10,024,500 $   4,024,500
+  $  150             40,000                   43% $   13,040,000 $    8,019,600 $   2,019,600
+  $  200             30,000                   32% $    9,780,000 $    6,014,700 $      14,700
+  $  250             24,000                   26% $    7,824,000 $    4,811,760 $  -1,188,240
+  $  300             20,000                   21% $    6,520,000 $    4,009,800 $  -1,990,200
+
+=== 24-MONTH COHORT: revenue at exit of round, by CAC x attach ===
+  (marketing spend fully deployed; attach = % who buy a second device)
+     CAC         att 5%       att 15%       att 30%       att 50%
+  $   80    $27,412,500   $33,337,500   $42,225,000   $54,075,000
+  $  120    $18,275,000   $22,225,000   $28,150,000   $36,050,000
+  $  150    $14,620,000   $17,780,000   $22,520,000   $28,840,000
+  $  200    $10,965,000   $13,335,000   $16,890,000   $21,630,000
+  $  250     $8,772,000   $10,668,000   $13,512,000   $17,304,000
+
+=== VALUATION ANCHOR ===
+  Beauty Tech Group listed Oct-2025 at £300m on £141.0m FY25 revenue = 2.1x revenue (deck's own slide 4).
+  A beauty-device business is valued on ~2-3x revenue, NOT software multiples.
+   $  10M revenue -> ~$   21M enterprise value at TBTG's listing multiple
+   $  25M revenue -> ~$   52M enterprise value at TBTG's listing multiple
+   $  50M revenue -> ~$  105M enterprise value at TBTG's listing multiple
+   $ 100M revenue -> ~$  210M enterprise value at TBTG's listing multiple
+   $ 150M revenue -> ~$  315M enterprise value at TBTG's listing multiple

@@ -1,0 +1,45 @@
+=== THE PINCER, QUANTIFIED (all from the deck's own numbers) ===
+
+  Scenario                                        CAC  net/cust      per $1M
+  Mask @ deck's $284                           $  284       205     $721,831
+  Mask @ Blemish ratio 52% ($411)              $  411        78     $189,781
+  Mask @ benchmark base $450                   $  450        39      $86,667
+  Mask @ benchmark base $600                   $  600      -111    $-185,000
+
+  Blemish ladder @ 3% attach                      $89        17     $187,303
+  Blemish ladder @ 8% attach                      $89        41     $462,022
+  Blemish ladder @ 13% attach                     $89        66     $736,742
+  Blemish ladder @ 15% attach                     $89        75     $846,629
+
+  => If $284 holds, mask-cold ($722k) beats the ladder at base 8% ($462k).
+  => If CAC follows the Blemish ratio ($411), mask-cold drops to $190k and the ladder wins.
+  => The favourable 36% ratio and the ladder strategy cannot both be true.
+
+=== MISSING FROM CONTRIBUTION: returns applied to CAC but not COGS ===
+  returns 10% x $191 landed = $19.10/retained customer not in the $489
+    -> mask net becomes $186 (deck says $205); break-even CAC $470
+  returns 12% x $191 landed = $22.92/retained customer not in the $489
+    -> mask net becomes $182 (deck says $205); break-even CAC $466
+
+=== REGULATORY TIMELINE: v2 vs reality ===
+  Deck slide 2:  'Five products launch through 2027'
+  Deck slide 14: 'No clearance held yet. 510(k) and MDR files are what this round opens with.'
+  Panel finding: first-time filer, no QMS -> 10-15 months from standing start (nothing started)
+  Earliest US launch Q4 2027 | base case H1 2028
+  => slide 2 and slide 14 are not compatible.
+
+=== UPDATED OUTCOME VIEW (v1 -> v2) ===
+  Outcome                        v1     v2
+  Fails / liquidates            44%    40%
+  Zombie <$10M                  26%    27%
+  $10-50M trade sale            20%    21%
+  $50-150M                       8%     9%
+  Category winner                2%     3%
+
+  P(going concern, self-funding)  v1 30%  ->  v2 33%
+  P(venture-scale >=3x)           v1 10%  ->  v2 12%
+
+  Why it moved: tranching inventory against clearance removes the single largest
+  catastrophic failure mode (dead pre-clearance stock), and dropping the indefensible
+  sensor claims removes FTC/diligence blow-up risk. Offset by a later launch (more
+  burn pre-revenue) and an unchanged team.

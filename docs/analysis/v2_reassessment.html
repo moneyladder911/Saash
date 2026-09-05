@@ -1,0 +1,340 @@
+<title>SAASH Deck v2 Reassessment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#F6F7F9; --surface:#FFFFFF; --raised:#EDF0F4;
+  --ink:#12161C; --body:#2C333D; --muted:#616B79; --faint:#8B94A1;
+  --rule:#DCE1E8; --rule-soft:#E8ECF1;
+  --accent:#8C2F39; --accent-soft:#F3E4E5;
+  --pass:#A32E2E; --pass-bg:#F7E6E5;
+  --cond:#8A6410; --cond-bg:#F8EEDC;
+  --good:#2C6350; --good-bg:#E2EFE9;
+  --shadow:0 1px 2px rgba(18,22,28,.05),0 8px 24px -16px rgba(18,22,28,.18);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0D1015; --surface:#141920; --raised:#1B212A;
+  --ink:#E9ECF1; --body:#C3CAD4; --muted:#8C96A4; --faint:#6B7583;
+  --rule:#252C36; --rule-soft:#1E242D;
+  --accent:#D98289; --accent-soft:#2A1A1D;
+  --pass:#E08A87; --pass-bg:#2B1817;
+  --cond:#D8AC5C; --cond-bg:#2A2114;
+  --good:#7FBFA5; --good-bg:#152420;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.7);
+}}
+:root[data-theme="dark"]{
+  --paper:#0D1015; --surface:#141920; --raised:#1B212A;
+  --ink:#E9ECF1; --body:#C3CAD4; --muted:#8C96A4; --faint:#6B7583;
+  --rule:#252C36; --rule-soft:#1E242D;
+  --accent:#D98289; --accent-soft:#2A1A1D;
+  --pass:#E08A87; --pass-bg:#2B1817;
+  --cond:#D8AC5C; --cond-bg:#2A2114;
+  --good:#7FBFA5; --good-bg:#152420;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--body);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px 96px}
+.col{max-width:672px}
+h1,h2,h3,h4{font-family:Newsreader,Georgia,serif;color:var(--ink);text-wrap:balance;margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+.num{font-variant-numeric:tabular-nums}
+
+/* masthead */
+.mast{border-bottom:1px solid var(--rule);padding:64px 0 34px;margin-bottom:44px}
+.kicker{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--accent);font-weight:500}
+h1{font-size:clamp(38px,6.2vw,62px);line-height:1.04;font-weight:500;letter-spacing:-.02em;margin:20px 0 0}
+.dek{font-size:19px;line-height:1.5;color:var(--muted);max-width:660px;margin:18px 0 0;font-weight:400}
+.meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.05em;color:var(--faint);text-transform:uppercase}
+
+/* answer band */
+.answer{background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+  box-shadow:var(--shadow);padding:34px 36px;margin-bottom:56px}
+.answer .lede{font-family:Newsreader,serif;font-size:25px;line-height:1.36;color:var(--ink);
+  font-weight:500;margin:0 0 14px;text-wrap:balance}
+.answer p{margin:0 0 14px;max-width:66ch}
+.answer p:last-of-type{margin-bottom:0}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:1px;
+  background:var(--rule-soft);border-top:1px solid var(--rule);margin-top:30px}
+.tile{background:var(--surface);padding:20px 18px}
+.tile .v{font-family:"IBM Plex Mono",monospace;font-size:30px;font-weight:500;color:var(--ink);
+  line-height:1;font-variant-numeric:tabular-nums}
+.tile .v.bad{color:var(--pass)} .tile .v.ok{color:var(--good)}
+.tile .l{font-size:12.5px;color:var(--muted);margin-top:9px;line-height:1.4}
+
+/* sections */
+section{margin-bottom:60px;scroll-margin-top:20px}
+.snum{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;
+  color:var(--faint);text-transform:uppercase;display:block;margin-bottom:10px}
+h2{font-size:clamp(26px,3.4vw,34px);font-weight:500;letter-spacing:-.015em;line-height:1.18}
+h3{font-size:20.5px;font-weight:600;margin:36px 0 10px;line-height:1.3}
+h4{font-family:"IBM Plex Sans",sans-serif;font-size:14px;font-weight:600;color:var(--ink);
+  margin:26px 0 8px;letter-spacing:.005em}
+p{margin:0 0 16px}
+.col p,.col ul,.col ol{max-width:68ch}
+strong{color:var(--ink);font-weight:600}
+em{font-style:italic}
+a{color:var(--accent)}
+ul,ol{padding-left:22px;margin:0 0 16px}
+li{margin-bottom:9px}
+hr{border:0;border-top:1px solid var(--rule);margin:44px 0}
+
+/* tables */
+.scroll{overflow-x:auto;margin:22px 0 26px;border:1px solid var(--rule);border-radius:3px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;text-align:left;padding:13px 16px;
+  border-bottom:1px solid var(--rule);white-space:nowrap;background:var(--raised)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.who{font-weight:600;color:var(--ink);white-space:nowrap}
+tr.hi td{background:var(--accent-soft)}
+
+.pill{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:2px;white-space:nowrap}
+.p-pass{background:var(--pass-bg);color:var(--pass)}
+.p-cond{background:var(--cond-bg);color:var(--cond)}
+.p-good{background:var(--good-bg);color:var(--good)}
+
+/* claim blocks */
+.claim{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--pass);
+  border-radius:2px;padding:26px 28px;margin:24px 0}
+.claim.ok{border-left-color:var(--good)}
+.claim h3{margin-top:0}
+.claim p:last-child,.claim ul:last-child{margin-bottom:0}
+.tag{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--pass);font-weight:600;display:block;margin-bottom:7px}
+.claim.ok .tag{color:var(--good)}
+blockquote{margin:0 0 16px;padding:10px 0 10px 18px;border-left:2px solid var(--rule);
+  font-family:Newsreader,serif;font-size:18px;font-style:italic;color:var(--muted)}
+
+/* questions */
+.q{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule-soft)}
+.q:last-child{border-bottom:0}
+.q .i{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);font-weight:600;
+  flex:0 0 auto;padding-top:3px}
+.q .t{font-family:Newsreader,serif;font-size:18.5px;line-height:1.45;color:var(--ink)}
+.q .t span{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:13.5px;
+  color:var(--muted);font-style:normal;margin-top:6px;line-height:1.5}
+
+/* fix list */
+.fixes{counter-reset:f;list-style:none;padding:0}
+.fixes li{counter-increment:f;position:relative;padding-left:38px;margin-bottom:14px}
+.fixes li::before{content:counter(f);position:absolute;left:0;top:1px;
+  font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;color:var(--accent);
+  background:var(--accent-soft);width:24px;height:24px;border-radius:2px;
+  display:grid;place-items:center}
+.band{background:var(--raised);border:1px solid var(--rule);border-radius:3px;padding:24px 28px;margin:26px 0}
+.band h4{margin-top:0}
+.foot{border-top:1px solid var(--rule);padding-top:26px;margin-top:70px;
+  font-size:13px;color:var(--faint);max-width:70ch}
+@media(max-width:640px){
+  .wrap{padding:0 18px 64px}.answer{padding:26px 22px}.claim{padding:22px 20px}
+  .mast{padding-top:44px}
+}
+</style><style>
+.st-fix{background:var(--good-bg);color:var(--good)} .st-part{background:var(--cond-bg);color:var(--cond)}
+.st-no{background:var(--pass-bg);color:var(--pass)} .st-new{background:var(--accent-soft);color:var(--accent)}
+.box{background:var(--surface);border:1px solid var(--rule);border-radius:2px;padding:18px 20px;margin:16px 0}
+.box.bad{border-left:3px solid var(--pass)} .box.ok{border-left:3px solid var(--good)}
+.box.warn{border-left:3px solid var(--cond)}
+.box h5{font-family:Newsreader,serif;font-size:17px;font-weight:600;color:var(--ink);margin:0 0 8px;line-height:1.28}
+.box p:last-child,.box ul:last-child{margin-bottom:0}
+.hd{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+  font-weight:600;color:var(--accent);margin:0 0 7px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sm{font-size:.94em}
+ul.tight{margin:0;padding-left:18px} ul.tight li{margin-bottom:5px}
+.delta{display:flex;gap:10px;align-items:baseline;font-family:"IBM Plex Mono",monospace;font-size:13px}
+.delta .old{color:var(--faint);text-decoration:line-through} .delta .new{color:var(--ink);font-weight:600}
+@media(max-width:640px){.two{grid-template-columns:1fr}}
+</style>
+<div class="wrap">
+<header class="mast">
+  <span class="kicker">Second Pass · Revised Deck · 4 September 2026</span>
+  <h1>Deck v2 Reassessment</h1>
+  <p class="dek">SAASH revised the investor introduction after the first panel. This is what changed, what it fixed, and what it did not — with three verification agents re-checking every new claim against live sources.</p>
+  <div class="meta"><span>14 slides, both versions compared</span><span>3 verification agents</span><span>Not financial advice</span></div>
+</header>
+
+<div class="answer">
+  <p class="lede">They took the work seriously. The deck moved from <em>"will be caught being wrong"</em> to <em>"will be caught being optimistic."</em> That is a real upgrade — and it is not the same as fundable at $20M.</p>
+  <p>Six substantive fixes landed, several of them requiring genuine discipline: the indefensible sensor claims were deleted rather than softened, regulatory status is now disclosed, and inventory is tranched against clearance. Every figure still ties exactly.</p>
+  <p>But <strong>the core economics did not change</strong> — the criticised $80 CAC is still there, wearing the returns correction as a coat. <strong>New falsifiable claims replaced the old ones.</strong> And the deck's own new numbers now argue against the strategy the deck is selling.</p>
+  <div class="tiles">
+    <div class="tile"><div class="v ok num">33%</div><div class="l">Going concern in 5 years <span style="color:var(--faint)">(was 30%)</span></div></div>
+    <div class="tile"><div class="v num">12%</div><div class="l">Venture-scale, ≥3x <span style="color:var(--faint)">(was 10%)</span></div></div>
+    <div class="tile"><div class="v bad num">$89</div><div class="l">New CAC = old $80 ÷ 0.90</div></div>
+    <div class="tile"><div class="v bad num">12.7%</div><div class="l">Attach the ladder needs; base rate is 8%</div></div>
+    <div class="tile"><div class="v num">H1 2028</div><div class="l">Base-case US launch</div></div>
+  </div>
+</div>
+
+<section>
+  <span class="snum">01 — Scorecard</span>
+  <h2>What was flagged, and what they did</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Flagged in the first panel</th><th>What v2 does</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Sensor claims unsupportable — Sebumeter is grease-spot photometry, "Courage + Khazaka standard" is wrong, melanin claim overreaching</td><td><strong>Deleted all of it.</strong> No sebum, no Courage + Khazaka, no Fitzpatrick claim. Measurement is now "a funded objective of this round"</td><td><span class="pill st-fix">Fixed</span></td></tr>
+      <tr><td>Slide 8's matrix falsified by FOREO, Nu Skin, Amorepacific</td><td>Rewritten. Now credits FOREO and Amorepacific with sensor + range + formulation. Differentiator moved to "one record across the portfolio"</td><td><span class="pill st-part">Fixed, new claim broken</span></td></tr>
+      <tr><td>Slide 11 assumes 100% attach; CAC not grossed for returns; order two not free</td><td>Attach shown at 5/10/25%. CAC "grossed for the return provision… per customer retained." $12 retention on repeat orders</td><td><span class="pill st-part">Structure fixed, input unchanged</span></td></tr>
+      <tr><td>Own regulatory status absent; inventory bought against impossible dates</td><td><strong>"No clearance held yet."</strong> Risk list adds "regulatory." Inventory "drawn against clearance, not ahead of it." Tranched on milestones</td><td><span class="pill st-fix">Fixed</span></td></tr>
+      <tr><td>Cold Sore implies SAASH ran the trial</td><td>Now "on a published protocol"</td><td><span class="pill st-fix">Fixed</span></td></tr>
+      <tr><td>Cryo margin modelled circularly at portfolio average</td><td>Cryo and MagSafe removed from the table until costed</td><td><span class="pill st-fix">Fixed</span></td></tr>
+      <tr><td>UAE cannot launch first — EDE requires reference-market approval</td><td>"The Emirates registers separately through a local representative, and a United States clearance shortens that route"</td><td><span class="pill st-fix">Fixed</span></td></tr>
+      <tr><td>$80 CAC unevidenced</td><td>$89 — which is $80 ÷ 0.90</td><td><span class="pill st-no">Not addressed</span></td></tr>
+      <tr><td>No hardware, regulatory or software leader; first hire is commercial</td><td><strong>Slide 13 unchanged.</strong> Still "the first hire is a commercial operator"</td><td><span class="pill st-no">Not addressed</span></td></tr>
+      <tr><td>No financial model, no valuation, no runway</td><td>Unchanged</td><td><span class="pill st-no">Not addressed</span></td></tr>
+      <tr><td>$20M is a Series A ask on a pre-revenue company</td><td>Amount unchanged; now "drawn against milestones"</td><td><span class="pill st-part">Structure only</span></td></tr>
+      <tr><td>—</td><td>New defensibility argument: "predicates in place… removes 12–20 months"</td><td><span class="pill st-new">New, and weaker</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <span class="snum">02 — The central problem</span>
+  <h2>The deck's own numbers refute its own strategy</h2>
+  <div class="col"><p>Slide 11 is titled <em>"The entry device buys the mask customer for a third of the price."</em> Its own figures say otherwise. Per $1,000,000 of marketing spend:</p></div>
+  <div class="scroll"><table>
+    <thead><tr><th>Strategy</th><th class="n">CAC</th><th class="n">Customers</th><th class="n">Net contribution</th></tr></thead>
+    <tbody>
+      <tr class="hi"><td><strong>Mask sold cold</strong></td><td class="n">$284</td><td class="n">3,521</td><td class="n"><strong>$721,831</strong></td></tr>
+      <tr><td>Blemish ladder @ 3% attach</td><td class="n">$89</td><td class="n">11,236</td><td class="n">$187,303</td></tr>
+      <tr><td>Blemish ladder @ 8% attach <em>(category base rate)</em></td><td class="n">$89</td><td class="n">11,236</td><td class="n">$462,022</td></tr>
+      <tr><td>Blemish ladder @ 15% attach</td><td class="n">$89</td><td class="n">11,236</td><td class="n">$846,629</td></tr>
+    </tbody>
+  </table></div>
+  <div class="col"><p><strong>The ladder does not overtake selling the mask cold until 12.7% attach.</strong> The category base rate for a durable device is ~8%. At base, the ladder returns 36% less per marketing dollar — and returns it over twenty-four months rather than immediately.</p></div>
+
+  <div class="box bad">
+    <p class="hd">The pincer — there is no version where both halves stand</p>
+    <ul class="tight">
+      <li><strong>If $284 is real</strong> → lead with the mask. The ladder is value-destroying below 12.7% attach.</li>
+      <li><strong>If $284 is not real</strong> → the +$205 fallback collapses. Break-even is $489; at a benchmark $450 CAC the mask returns <strong>$87k per $1M</strong> instead of $722k, and at $600 it is negative.</li>
+      <li><strong>If CAC instead followed the Blemish ratio</strong> (52% × $790 = $411) → mask net is $78, the ladder wins — but the favourable 36% ratio is gone.</li>
+    </ul>
+    <p style="margin-top:10px;margin-bottom:0"><strong>The favourable ratio and the ladder strategy cannot both be defended.</strong></p>
+  </div>
+
+  <div class="col">
+    <h4>Why $284 is the weakest number on the slide</h4>
+    <p>Benchmarks put a $790 considered DTC purchase at <strong>$450–600</strong>. <strong>Peloton, at peak demand with enormous brand equity, ran ~$588 per connected-fitness add in FY2021 and ~$1,570 in FY2022.</strong> LYMA publishes no CAC but discloses a <strong>120-day consideration window</strong> and acquires through Meta, PR, practitioners, retail and financing — a long, expensive funnel.</p>
+    <p><strong>The tell is in the ratios: 52%, 53%, 36%.</strong> Flat across the two SKUs where it doesn't matter; it drops exactly once, for the only number that carries the strategy. The stated principle requires the mask to convert at <strong>31% of the Blemish rate on equal traffic cost</strong>. Device CPMs run higher and conversion above $200 falls toward ~1%, which implies $360–580.</p>
+    <h4>One omission neither pass caught first time</h4>
+    <p><strong>The returns provision is applied to CAC but not to contribution.</strong> A returned LED mask is not resaleable on hygiene grounds — roughly <strong>$19–23 per retained customer</strong> missing from the $489, which takes mask net from $205 to ~$185.</p>
+  </div>
+</section>
+
+<section>
+  <span class="snum">03 — The new defensibility argument</span>
+  <h2>"Predicates in place" does not survive inspection</h2>
+  <div class="col"><p>Slide 10's new lead argument: <em>"Tooling for three devices is complete and paid for by SAASH. The supply chain already holds cleared devices in the same product codes. That is what removes twelve to twenty months from a cold start."</em></p></div>
+  <div class="two">
+    <div class="box bad">
+      <h5>The claim is true and confers no advantage</h5>
+      <p class="sm">ODM-held clearances in these codes are real — <strong>K242593</strong> (Shenzhen Kaiyan, product codes OHS + OLP) and <strong>K222205</strong> (Light Tree Ventures, 1072nm, ~3 min, code OKJ). But FDA rules are explicit: <strong>any legally marketed device may be cited as a predicate, and no permission from the predicate owner is required.</strong> That is true for SAASH, for its competitors, and for a founder starting tomorrow.</p>
+    </div>
+    <div class="box bad">
+      <h5>The internal contradiction</h5>
+      <p class="sm">Using the ODM's <em>test data</em> is not automatic — it needs a contractual Letter of Authorization. And 21 CFR 807.85 exempts a distributor from filing only if it "does not otherwise affect the device." SAASH says it owns the industrial design and the app, so the exemption is unavailable — which is why slide 14 correctly concedes it must file. <strong>But if SAASH files its own 510(k), the ODM clearance is doing predicate-only work, which is free to everyone.</strong> The deck cannot claim both.</p>
+    </div>
+  </div>
+  <div class="col">
+    <p><strong>Realistic saving from finished tooling: 2–4 months, not 12–20.</strong> Tooling lead time is weeks and runs parallel to regulatory; regulatory is the critical path and takes quarters. Crediting the parallel path with the critical path's duration is a category error. <em>(Three device housings plausibly cost $30k–$120k in total — real money, but not a moat.)</em></p>
+    <p><strong>And the ownership question is now louder.</strong> There is only one 510(k) holder and it is the specification developer. The K242593 pattern — the Shenzhen ODM holds the clearance, the brand does not — is the industry default. The deck lists brand, industrial design and application as owned outright, and omits clearances. <strong>If the ODM owns it, the moat is a supplier relationship, not IP.</strong></p>
+  </div>
+  <div class="box warn">
+    <h5>Self-inflicted: the device named "MagSafe"</h5>
+    <p class="sm">MAGSAFE is a registered Apple trademark (Reg. 3229791). "Made for MagSafe" is a certification mark available only through MFi licensing; unlicensed accessories must market as "MagSafe <em>compatible</em>." <strong>Naming a product "MagSafe" is trademark exposure, not a feature.</strong> Rename before any marketing spend. It also needs its own 510(k), plus battery and thermal files with a phone acting as heatsink.</p>
+  </div>
+</section>
+
+<section>
+  <span class="snum">04 — New claims that don't hold</span>
+  <h2>The same failure mode, one level up</h2>
+  <div class="col"><p>The old falsifiable claims were removed. Four new ones took their place — all checkable in a meeting.</p></div>
+  <div class="scroll"><table>
+    <thead><tr><th>New claim</th><th>What the check found</th></tr></thead>
+    <tbody>
+      <tr><td><strong>"Neither holds one skin record across them"</strong> — the new core differentiator</td><td>Amorepacific's CES 2026 AI Beauty Mirror runs diagnostics against 450,000+ case datasets, and its output <em>"is integrated with ONFACE LED Mask and Skin Light Therapy 3S."</em> That is measurement→device linkage across a portfolio. Survives only if narrowed to "no one fuses readings from multiple owned devices into a single longitudinal record."</td></tr>
+      <tr><td><strong>"The largest company in beauty is not coming with this"</strong></td><td>L'Oréal's <strong>Cell BioPrint launched at scale with Lancôme in March 2026</strong> — in market six months. <em>(The mask specifics all check out: 630nm + 830nm, fixed 10-minute sessions, no measurement, 2027, FDA pending.)</em></td></tr>
+      <tr><td><strong>"Amorepacific (Korea only)"</strong></td><td>Wrong twice. Skinsight has no announced price or release date in <em>any</em> market. ONFACE debuted globally at IFA Berlin, Sept 2025.</td></tr>
+      <tr><td><strong>"CurrentBody, the largest company in the category"</strong></td><td>Should be "largest listed pure-play." BTG's own language is "the leading <em>specialist</em>"; Philips Lumea, SharkNinja and Shiseido are larger. <em>(The "no app at all" half is fully verified.)</em></td></tr>
+    </tbody>
+  </table></div>
+  <div class="two">
+    <div class="box warn">
+      <h5>One change actively weakens the argument</h5>
+      <p class="sm">Adding <strong>Braun and SmoothSkin</strong> to the sensing row. Both read skin 80×/second — but as <strong>melanin/tone safety interlocks for IPL</strong>, deciding whether firing is safe. They store nothing and say nothing about skin condition. Grouping them with BEAR's resistance sensing makes the "nobody senses" gap look more crowded than it is.</p>
+    </div>
+    <div class="box warn">
+      <h5>The scope narrowing will be noticed</h5>
+      <p class="sm">"Seventeen brands" became "seventeen <strong>Western</strong> devices." The excluded set is where convergence is furthest along — <strong>AMIRO's 2026 app does a 30-second camera skin scan with dynamic treatment adjustment and Apple Health sync.</strong> Narrowing is legitimate; doing it without a stated rationale is invisible on the slide and obvious to anyone who knows the category.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="snum">05 — Contradictions introduced</span>
+  <h2>Four sentences that cannot both stand</h2>
+  <div class="col">
+    <ol class="fixes">
+      <li><strong>Slide 4 vs slide 9.</strong> Slide 4 still says SAASH enters <em>"with the personalisation layer none of them has built."</em> Slide 9 now says that layer is what this round builds. <strong>Change slide 4.</strong></li>
+      <li><strong>Slide 2 vs slide 14.</strong> Slide 2 says <em>"Five products launch through 2027."</em> Slide 14 says no clearance is held. A first-time filer with no QMS needs <strong>10–15 months</strong>, and nothing has started — so earliest US launch is <strong>Q4 2027, base case H1 2028.</strong> Removing the individual dates while keeping the aggregate claim reads as concealment rather than correction.</li>
+      <li><strong>Slide 10 vs slide 14.</strong> "Predicates in place" implies a transferable regulatory advantage; "no clearance held yet, files are what this round opens with" concedes a full submission. Only one can be the argument.</li>
+      <li><strong>Slide 13 vs slide 3.</strong> The founder bio still says <em>"all four launch devices"</em> — the portfolio is now five.</li>
+    </ol>
+  </div>
+  <div class="box warn">
+    <h5>Two new regulatory obligations the deck doesn't mention</h5>
+    <p class="sm">The app-connected mask is a <strong>"cyber device" under FD&amp;C Act §524B</strong> — an SBOM and a security risk management report are mandatory submission elements (FDA final guidance, June 2025). And <strong>QMSR took effect 2 February 2026</strong>: 21 CFR 820 now incorporates ISO 13485:2016, so a conforming QMS is required regardless of who manufactures.</p>
+  </div>
+</section>
+
+<section>
+  <span class="snum">06 — Verdict</span>
+  <h2>A much better seed deck. Still not a $20M deck.</h2>
+  <div class="two">
+    <div>
+      <p class="hd">What genuinely moved the odds</p>
+      <p class="sm">Tranching inventory against clearance removes the single largest catastrophic failure mode — dead pre-clearance stock stranding 35% of the raise. Deleting the sensor claims removes FTC and diligence blow-up risk. Both are real, and both are why the going-concern probability moves <strong>30% → 33%</strong> and venture-scale <strong>10% → 12%</strong>.</p>
+      <p class="sm">Offsetting: launch slips to <strong>H1 2028</strong> base case, which is more burn before revenue, and the team is unchanged — now a larger gap, not a smaller one, because the deck leans harder on regulatory filings and on building a measurement layer with no regulatory lead and no sensing engineer named.</p>
+      <p class="hd" style="margin-top:14px">The honest summary</p>
+      <p class="sm">v1 would have been caught being <em>wrong</em>. v2 will be caught being <em>optimistic</em>. That is a meaningful upgrade in credibility and a smaller one in fundability, because the ask never changed. <strong>This is now a strong $4–6M seed deck carrying a $20M number on the last page.</strong></p>
+    </div>
+    <div>
+      <p class="hd">Fix before it goes out again — hours</p>
+      <ol class="fixes sm">
+        <li><strong>Delete "the personalisation layer none of them has built"</strong> from slide 4.</li>
+        <li><strong>Narrow the "one record" claim</strong> — Amorepacific is a live counter-example.</li>
+        <li><strong>Cut "the largest company in beauty is not coming with this."</strong> Cell BioPrint shipped in March.</li>
+        <li><strong>Fix "Amorepacific (Korea only)"</strong> and "largest company in the category."</li>
+        <li><strong>Drop Braun and SmoothSkin</strong> from the sensing row, or split safety interlocks into their own column.</li>
+        <li><strong>Rename MagSafe.</strong></li>
+        <li><strong>Strike "five products launch through 2027"</strong> or date it to clearance.</li>
+      </ol>
+      <p class="hd" style="margin-top:12px">Decide before the raise</p>
+      <ol class="fixes sm" start="8">
+        <li><strong>Pick a side of the pincer.</strong> Either defend $284 and lead with the mask, or keep the ladder and drop the 36% ratio.</li>
+        <li><strong>Produce the Letter of Authorization</strong> from the ODM, or delete the predicate slide.</li>
+        <li><strong>Say who will hold each clearance.</strong></li>
+        <li><strong>Name the regulatory and hardware leads.</strong> Still the biggest single gap.</li>
+        <li><strong>Add the financial model</strong>, and cut the ask.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="box">
+    <h5>The question that ends the next meeting</h5>
+    <p class="sm">"What actual spend, over what period, produced a customer at $284 — and if you have it, why fund the ladder at all, when your own slide says leading with the mask returns $722k per $1M against $462k at base attach, and the ladder doesn't overtake until 12.7%?"</p>
+  </div>
+</section>
+
+<p class="foot">Second-pass review of the revised deck, 4 September 2026, against the first panel of eight sealed agents. Three verification agents re-checked every new or changed claim with live sources; all arithmetic independently recomputed from the deck's own figures. Note that FDA databases were unreachable from this environment, so clearance details were corroborated through multiple independent search paths rather than direct retrieval, and the identification of a specific cold-sore ODM is inference from a spec match, not verified fact. A read of one document and public sources — not diligence on the underlying business, and not financial advice.</p>
+</div>

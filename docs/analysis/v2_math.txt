@@ -1,0 +1,42 @@
+=== V2 SLIDE 11 — DOES THE ARITHMETIC TIE? ===
+
+  Blemish      price $170 contrib $103 CAC $ 89 -> net $+14  | CAC/price 52.4%  | breakeven CAC $103  headroom 13.6%
+  Cold Sore    price $190 contrib $121 CAC $100 -> net $+21  | CAC/price 52.6%  | breakeven CAC $121  headroom 17.4%
+  AI LED Mask  price $790 contrib $489 CAC $284 -> net $+205  | CAC/price 35.9%  | breakeven CAC $489  headroom 41.9%
+
+  Ladder claim: '+$14 first order, less $12 retention, plus mask at 5/10/25% attach = +$26,+$51,+$124'
+    attach    5%: 14 - 12 + 0.05*489 = $ 26.45   (deck says +$26)
+    attach   10%: 14 - 12 + 0.1*489 = $ 50.90   (deck says +$51)
+    attach   25%: 14 - 12 + 0.25*489 = $124.25   (deck says +$124)
+  -> ties exactly. Note: $12 retention charged to ALL customers; full $489 credited to attachers.
+
+  'Same mask order, two ways': +$205 cold | +$477 up the ladder | ladder worth +$272
+    489-12 = 477 ✓   477-205 = 272 ✓
+
+=== V1 -> V2: WHAT ACTUALLY CHANGED IN THE CAC ===
+  v1 Blemish CAC $80 flat. v2 $89 'grossed for the return provision'.
+    80 / 0.90 = 88.89  ->  the SAME $80, with the returns correction applied.
+    v1 net +$23  ->  v2 net +$14. The deck now concedes the lower figure.
+
+=== THE DECISIVE TEST: LADDER vs SELLING THE MASK COLD ===
+  Per $1,000,000 of marketing spend:
+
+  Strategy                            customers   net contribution
+  Mask sold cold                          3,521           $721,831
+  Blemish ladder @ 5% attach             11,236           $297,191
+  Blemish ladder @ 8% attach             11,236           $462,022
+  Blemish ladder @ 10% attach            11,236           $571,910
+  Blemish ladder @ 15% attach            11,236           $846,629 <-- ladder wins
+  Blemish ladder @ 25% attach            11,236         $1,396,067 <-- ladder wins
+
+  Ladder needs $64.24 per Blemish customer to match mask-cold
+  -> BREAK-EVEN ATTACH RATE = 12.7%
+  Category base rate for a durable device (prior panel): ~8%  [range 3-15%]
+  => At the base rate the ladder LOSES to simply selling the mask.
+
+=== ROBUSTNESS: how wrong can the CAC be before each device stops working? ===
+  Blemish      survives CAC up to $103  (1.16x the assumed $89)
+  Cold Sore    survives CAC up to $121  (1.21x the assumed $100)
+  AI LED Mask  survives CAC up to $489  (1.72x the assumed $284)
+
+  The mask tolerates a 72% CAC miss. Blemish tolerates 16%. Cold Sore 21%.

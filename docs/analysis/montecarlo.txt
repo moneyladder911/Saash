@@ -1,0 +1,30 @@
+=== MONTE CARLO, 200,000 runs ===
+
+P(blended CAC <= $150 at scale)        32.5%
+P(attach >= 15% over 24 months)        16.4%
+
+LTV/CAC  median 0.80x   mean 0.86x
+   p10  0.53x
+   p25  0.64x
+   p50  0.80x
+   p75  1.02x
+   p90  1.28x
+   p99  1.90x
+P(LTV/CAC >= 1.0, returns cash  )  26.4%
+P(LTV/CAC >= 1.5, marginal      )   4.3%
+P(LTV/CAC >= 2.0, scalable      )   0.7%
+P(LTV/CAC >= 3.0, venture-grade )   0.0%
+
+P(ships + cleared + funded + scalable unit economics) = 0.4%
+
+=== OUTCOME DISTRIBUTION (5yr), panel-weighted ===
+  Fails / liquidates           P=44.0%  gross 0.05x  contrib 0.022
+  Zombie <$10M rev             P=26.0%  gross 0.40x  contrib 0.104
+  $10-50M rev, trade sale      P=20.0%  gross 1.30x  contrib 0.260
+  $50-150M rev                 P= 8.0%  gross 3.60x  contrib 0.288
+  Category winner >$150M       P= 2.0%  gross 6.50x  contrib 0.130
+
+  EXPECTED MOIC at ~$80M post = 0.80x
+  EXPECTED MOIC at ~$35M post = 1.84x
+  P(going concern & self-funding in 5y) = 30%
+  P(venture-scale, >=3x)                = 10%
