@@ -447,7 +447,7 @@ footer{border-top:1px solid var(--line);padding:clamp(44px,7vh,84px) 0 38px}
           Light-therapy devices for blemish-prone skin, cold sores and full-face care — every one specified in nanometres and seconds. Designed and owned outright in the United Arab Emirates.</p>
         <div class="soc" id="fsoc"></div>
       </div>
-      <div class="fcol"><h4>Devices</h4><div id="fdev"></div></div>
+      <div class="fcol"><h4>Products</h4><div id="fdev"></div></div>
       <div class="fcol"><h4>Help</h4>
         <a href="#/faq">Questions</a><a href="#/using">Using the devices</a><a href="#/delivery">Delivery</a>
         <a href="#/returns">Returns</a><a href="#/warranty">Warranty</a><a href="#/contact">Contact</a>
@@ -552,7 +552,7 @@ const FILM_SRC="";  // paste a data:video/mp4;base64,… URI here and the film g
 // Leave "" and they validate and confirm locally without sending.
 const FORM_ENDPOINT="";
 const SOCIALS=[["Instagram",""],["TikTok",""],["YouTube",""],["LinkedIn",""]];
-const NAV=[["#/devices","Devices"],["#/technology","Technology"],["#/house","The House"],["#/contact","Contact"]];
+const NAV=[["#/products","Products"],["#/technology","Technology"],["#/house","The House"],["#/contact","Contact"]];
 
 const POLICIES=[
  {id:"using",title:"Using the devices",group:"help",updated:"4 September 2026",
@@ -666,7 +666,7 @@ function paintBag(){
   const body=document.getElementById("bagbody");
   if(!BAG.length){
     body.innerHTML=`<p style="color:var(--fg2);font-size:15px;margin:0">Your bag is empty.</p>
-      <p style="margin:22px 0 0"><a class="btn ghost auto" href="#/devices" data-close>The devices</a></p>`;
+      <p style="margin:22px 0 0"><a class="btn ghost auto" href="#/products" data-close>The products</a></p>`;
   } else {
     body.innerHTML=BAG.map(i=>{
       const d=DEVICES.find(x=>x.id===i.id); if(!d) return "";
@@ -783,7 +783,7 @@ function mountArt(el,art){
 /* ================= templates ================= */
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const artOf=(d,c)=>`<div class="art ${c}" data-art="${d.id}"><canvas></canvas><span class="cap">${d.code} · light signature</span></div>`;
-const card=d=>`<a class="pcard" href="#/device/${d.id}">
+const card=d=>`<a class="pcard" href="#/product/${d.id}">
   <div class="pctop"><span class="pcat">${esc(d.cat)}</span>
     <span class="ppill">${d.status==="Production sampling"?"sampling":"in dev"}</span></div>
   <div class="pshot"><img class="a" src="${ASSETS["card-"+d.id]}" alt="${esc(d.name)}" loading="lazy" width="900" height="900"><img class="b" src="${ASSETS["hover-"+d.id]}" alt="" aria-hidden="true" loading="lazy" width="900" height="900"></div>
@@ -819,7 +819,7 @@ function tHero(){
  return `<section class="ihero">${media}
    <div class="iov">
      <p class="st">Three minutes. Every session the same.</p>
-     <a class="pillbtn" href="#/device/ai-led-mask">AI LED Mask</a>
+     <a class="pillbtn" href="#/product/ai-led-mask">AI LED Mask</a>
    </div>
  </section>`}
 
@@ -928,9 +928,9 @@ function pHome(){return `
 
 function pDevices(){return `
  <div class="wrap hero">
-   ${eyerule("Devices")}
-   <h1 class="h2 rise">Choose by concern,<br>not by mode.</h1>
-   <p class="lede rise2" style="margin-top:24px">Each device is built for one thing and states exactly what it emits and for how long. Three are tooled and in production sampling; two are in development.</p>
+   ${eyerule("Products")}
+   <h1 class="h2 rise">Nothing here<br>does everything.</h1>
+   <p class="lede rise2" style="margin-top:24px">Five devices, one problem each — a spot, a cold sore, your whole face, a morning your face has not caught up with, a night away from home.</p>
  </div>
  <section class="sec"><div class="wrap">
    <div class="cardgrid">${DEVICES.map(card).join("")}</div>
@@ -964,7 +964,7 @@ function pDevice(id){
  </div>
  <section class="sec" style="margin-top:clamp(34px,6vh,70px)"><div class="wrap">
    <div class="rows" style="border-top:0">
-     <a class="prow" href="#/device/${n.id}" style="border-bottom:0">
+     <a class="prow" href="#/product/${n.id}" style="border-bottom:0">
        <span class="code">${n.code}</span><span class="nm">${esc(n.name)}</span>
        <span class="ds">${esc(n.short)}</span>
        <span class="pz">Next <span class="ar" aria-hidden="true">→</span></span>
@@ -1049,7 +1049,7 @@ function pHouse(){
  <section class="sec"><div class="wrap two">
    <div><h2 class="h3">Where we are.</h2></div>
    <div><p class="body" style="font-size:15px">Three devices tooled and in production sampling, two in development, and no clearance held yet — the files are what this stage opens with. We would rather you read that here than discover it later.</p>
-     <p style="margin-top:24px"><a class="btn ghost auto" href="#/devices">The devices <span aria-hidden="true">→</span></a></p></div>
+     <p style="margin-top:24px"><a class="btn ghost auto" href="#/products">The products <span aria-hidden="true">→</span></a></p></div>
  </div></section>`}
 
 function pContact(res,subj){
@@ -1172,7 +1172,7 @@ function pDoc(id){
 
 function p404(){return `<div class="wrap hero" style="padding:clamp(70px,16vh,180px) 0">
   ${eyerule("404")}<h1 class="h2">That page does not exist.</h1>
-  <p style="margin-top:30px"><a class="btn ghost auto" href="#/devices">The devices <span aria-hidden="true">→</span></a></p></div>`}
+  <p style="margin-top:30px"><a class="btn ghost auto" href="#/products">The products <span aria-hidden="true">→</span></a></p></div>`}
 
 /* ================= router ================= */
 let teardown=[];
@@ -1184,8 +1184,8 @@ function render(){
   let html,cur="";
   const head=parts[0];
   if(!head) html=pHome();
-  else if(head==="devices"){html=pDevices();cur="#/devices"}
-  else if(head==="device"){html=pDevice(parts[1]);cur="#/devices"}
+  else if(head==="products"||head==="devices"){html=pDevices();cur="#/products"}
+  else if(head==="product"||head==="device"){html=pDevice(parts[1]);cur="#/products"}
   else if(head==="technology"){html=pTech();cur="#/technology"}
   else if(head==="house"){html=pHouse();cur="#/house"}
   else if(head==="contact"){html=pContact(q.get("r"),q.get("s"));cur="#/contact"}
@@ -1252,7 +1252,7 @@ document.getElementById("nav").innerHTML=NAV.map(([h,l])=>`<a href="${h}">${l}</
 document.getElementById("mnav").innerHTML=`<div class="wrap">${NAV.map(([h,l])=>`<a href="${h}">${l}</a>`).join("")}</div>`;
 document.getElementById("fsoc").innerHTML=SOCIALS.map(([n,u])=>u
   ? `<a href="${u}" target="_blank" rel="noopener noreferrer">${n}</a>` : `<span>${n}</span>`).join("");
-document.getElementById("fdev").innerHTML=DEVICES.map(d=>`<a href="#/device/${d.id}">${d.code} ${d.name}</a>`).join("");
+document.getElementById("fdev").innerHTML=DEVICES.map(d=>`<a href="#/product/${d.id}">${d.code} ${d.name}</a>`).join("");
 addEventListener("hashchange",render);
 paintBag(); render();
 </script>
