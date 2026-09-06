@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAASH</title>
 <meta name="description" content="Light treatments, three minutes at home. Five devices for blemish-prone skin, cold sores and full-face care, each running one stated wavelength for one stated time.">
 <meta name="theme-color" content="#0A0A0B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23F2F2F0' stroke-width='1.4'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%23F2F2F0'/%3E%3C/svg%3E">
@@ -10,8 +11,6 @@
 <meta property="og:site_name" content="SAASH">
 <meta property="og:title" content="SAASH — Light treatments, three minutes at home">
 <meta property="og:description" content="Light treatments, three minutes at home. Five devices for blemish-prone skin, cold sores and full-face care, each running one stated wavelength for one stated time.">
-<!-- Once Vercel gives you a URL, make these two absolute:
-     https://your-project.vercel.app/og.png — WhatsApp will not resolve a relative image. -->
 <meta property="og:image" content="og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -20,7 +19,6 @@
 <meta name="twitter:description" content="Light treatments, three minutes at home. Five devices for blemish-prone skin, cold sores and full-face care, each running one stated wavelength for one stated time.">
 <meta name="twitter:image" content="og.png">
 <style>*{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>SAASH</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@200;300;400;500&display=swap">
@@ -158,8 +156,14 @@ header.hd{position:sticky;top:0;z-index:70;background:var(--bg);border-bottom:1p
   color:#69695F}
 .ppill{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;
   background:#12120F;color:#F8F8F6;border-radius:999px;padding:5px 10px;white-space:nowrap;flex:0 0 auto}
-.pshot{margin:2px -6px 16px}
+.pshot{position:relative;width:84%;margin:2px auto 14px}
 .pshot img{display:block;width:100%;height:auto}
+.pshot .b{position:absolute;inset:0;opacity:0}
+@media(hover:hover){
+  .pshot img{transition:opacity .5s var(--ease)}
+  .pcard:hover .pshot .a{opacity:0}
+  .pcard:hover .pshot .b{opacity:1}
+}
 .pstat{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#72726A}
 .pcrow{display:flex;justify-content:space-between;gap:14px;align-items:baseline;margin-top:9px}
 .pname{font-size:13.5px;font-weight:600;letter-spacing:.015em;text-transform:uppercase}
@@ -279,9 +283,15 @@ textarea.inp{border:1px solid var(--line2);padding:12px;min-height:132px;resize:
 .shot img{display:block;width:100%;height:100%;object-fit:cover}
 .shot.sq,.shot.tall{aspect-ratio:1/1}
 .shot.sq{max-width:320px}
-.shot.tall{max-width:360px}
+.shot.tall{max-width:296px}
+.shot .a,.shot .b{transition:opacity .5s var(--ease)}
+.shot .b{position:absolute;inset:0;opacity:0}
+.shot.sw{cursor:zoom-in}
+.shot.sw.on .a{opacity:0}
+.shot.sw.on .b{opacity:1}
+@media(hover:hover){.shot.sw:hover .a{opacity:0}.shot.sw:hover .b{opacity:1}}
 .shot.port{aspect-ratio:1/1;max-width:170px}
-.shot .cap{position:absolute;left:16px;bottom:13px;font-family:var(--mono);font-size:8.5px;
+.shot .cap{position:absolute;z-index:2;left:16px;bottom:13px;font-family:var(--mono);font-size:8.5px;
   letter-spacing:.18em;text-transform:uppercase;color:#72726A}
 .band{display:grid;grid-template-columns:repeat(5,1fr);background:#F7F7F5;border-block:1px solid var(--line)}
 .band a{display:block;position:relative;border-right:1px solid rgba(10,10,11,.07);transition:opacity .4s var(--ease)}
@@ -410,11 +420,10 @@ footer{border-top:1px solid var(--line);padding:clamp(44px,7vh,84px) 0 38px}
 @keyframes rise{from{opacity:.62;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important;transition-duration:.001s!important}}
 </style>
-
-<div class="anno"><div class="wrap"><span class="msg" id="anno">Complimentary delivery worldwide</span></div></div>
-
 </head>
 <body>
+<div class="anno"><div class="wrap"><span class="msg" id="anno">Complimentary delivery worldwide</span></div></div>
+
 <header class="hd">
   <div class="wrap hdin">
     <a class="mark" href="#/" aria-label="SAASH home">SAASH</a>
@@ -472,7 +481,7 @@ footer{border-top:1px solid var(--line);padding:clamp(44px,7vh,84px) 0 38px}
 
 <script>
 "use strict";
-const ASSETS={"blemish": "assets/blemish.webp", "cold-sore": "assets/cold-sore.webp", "ai-led-mask": "assets/ai-led-mask.webp", "cryo": "assets/cryo.webp", "carry": "assets/carry.webp", "founder-a": "assets/founder-a.webp", "founder-b": "assets/founder-b.webp", "film": "assets/film.webp", "card-blemish": "assets/card-blemish.webp", "card-cold-sore": "assets/card-cold-sore.webp", "card-ai-led-mask": "assets/card-ai-led-mask.webp", "card-cryo": "assets/card-cryo.webp", "card-carry": "assets/card-carry.webp", "hero": "assets/hero.webp", "wl-415": "assets/wl-415.webp", "wl-660": "assets/wl-660.webp", "wl-1072": "assets/wl-1072.webp", "wl-cold": "assets/wl-cold.webp", "tx-camera": "assets/tx-camera.webp", "tx-contact": "assets/tx-contact.webp"};
+const ASSETS={"blemish": "assets/blemish.webp", "cold-sore": "assets/cold-sore.webp", "ai-led-mask": "assets/ai-led-mask.webp", "cryo": "assets/cryo.webp", "carry": "assets/carry.webp", "founder-a": "assets/founder-a.webp", "founder-b": "assets/founder-b.webp", "film": "assets/film.webp", "card-blemish": "assets/card-blemish.webp", "card-cold-sore": "assets/card-cold-sore.webp", "card-ai-led-mask": "assets/card-ai-led-mask.webp", "card-cryo": "assets/card-cryo.webp", "card-carry": "assets/card-carry.webp", "hero": "assets/hero.webp", "wl-415": "assets/wl-415.webp", "wl-660": "assets/wl-660.webp", "wl-1072": "assets/wl-1072.webp", "wl-cold": "assets/wl-cold.webp", "tx-camera": "assets/tx-camera.webp", "tx-contact": "assets/tx-contact.webp", "hover-blemish": "assets/hover-blemish.webp", "hover-cold-sore": "assets/hover-cold-sore.webp", "hover-ai-led-mask": "assets/hover-ai-led-mask.webp", "hover-cryo": "assets/hover-cryo.webp", "hover-carry": "assets/hover-carry.webp"};
 const AED=3.6725, fmt=n=>n.toLocaleString("en-US");
 const price=usd=>usd==null?"On announcement":"USD "+fmt(usd)+" · AED "+fmt(Math.round(usd*AED/5)*5);
 
@@ -777,13 +786,12 @@ const artOf=(d,c)=>`<div class="art ${c}" data-art="${d.id}"><canvas></canvas><s
 const card=d=>`<a class="pcard" href="#/device/${d.id}">
   <div class="pctop"><span class="pcat">${esc(d.cat)}</span>
     <span class="ppill">${d.status==="Production sampling"?"sampling":"in dev"}</span></div>
-  <div class="pshot"><img src="${ASSETS["card-"+d.id]}" alt="${esc(d.name)}" loading="lazy" width="900" height="900"></div>
+  <div class="pshot"><img class="a" src="${ASSETS["card-"+d.id]}" alt="${esc(d.name)}" loading="lazy" width="900" height="900"><img class="b" src="${ASSETS["hover-"+d.id]}" alt="" aria-hidden="true" loading="lazy" width="900" height="900"></div>
   <div class="pstat">${d.code}</div>
   <div class="pcrow"><span class="pname">${esc(d.name)}</span><span class="pprice">${d.usd?"$"+fmt(d.usd):"—"}</span></div>
   <div class="ptag">${esc(d.tag)}</div>
 </a>`;
-const shot=(d,c)=>`<a class="shot ${c}" href="#/device/${d.id}"><img src="${ASSETS["card-"+d.id]}" alt="${esc(d.name)} device, ${esc(d.short)}" loading="lazy" width="780" height="975"><span class="cap">${d.code} · ${esc(d.name)}</span></a>`;
-const shotPlain=(d,c)=>`<div class="shot ${c}"><img src="${ASSETS["card-"+d.id]}" alt="${esc(d.name)} device" width="900" height="900"><span class="cap">${d.code} · ${esc(d.name)}</span></div>`;
+const shotPlain=(d,c)=>`<div class="shot sw ${c}"><img class="a" src="${ASSETS["card-"+d.id]}" alt="${esc(d.name)} device" width="900" height="900"><img class="b" src="${ASSETS["hover-"+d.id]}" alt="${esc(d.name)}, detail" width="900" height="900"><span class="cap">${d.code} · ${esc(d.name)}</span></div>`;
 const dl=rows=>`<div class="dl">${rows.map(([k,v])=>`<div class="r"><span class="k">${esc(k)}</span><span class="v">${esc(v)}</span></div>`).join("")}</div>`;
 const eyerule=t=>`<div class="eyerule"><span class="mono">${esc(t)}</span><span class="ln"></span></div>`;
 
@@ -1204,6 +1212,8 @@ function render(){
     document.getElementById("cnext").addEventListener("click",()=>cards.scrollBy({left:step(),behavior:"smooth"}));
     cards.addEventListener("scroll",sync,{passive:true}); sync();
   }
+  app.querySelectorAll(".shot.sw").forEach(el=>
+    el.addEventListener("click",()=>el.classList.toggle("on")));
   app.querySelectorAll("[data-add]").forEach(b=>
     b.addEventListener("click",()=>addToBag(b.getAttribute("data-add"))));
   wire("nl","nlm","You are on the list.");
@@ -1246,6 +1256,5 @@ document.getElementById("fdev").innerHTML=DEVICES.map(d=>`<a href="#/device/${d.
 addEventListener("hashchange",render);
 paintBag(); render();
 </script>
-
 </body>
 </html>
