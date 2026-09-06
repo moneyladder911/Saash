@@ -11,7 +11,7 @@
 <meta property="og:title" content="SAASH — Light treatments, three minutes at home">
 <meta property="og:description" content="Light treatments, three minutes at home. Five devices for blemish-prone skin, cold sores and full-face care, each running one stated wavelength for one stated time.">
 <!-- Once Vercel gives you a URL, make these two absolute:
-     https://your-project.vercel.app/og.png  — WhatsApp will not resolve a relative image. -->
+     https://your-project.vercel.app/og.png — WhatsApp will not resolve a relative image. -->
 <meta property="og:image" content="og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -177,6 +177,14 @@ header.hd{position:sticky;top:0;z-index:70;background:var(--bg);border-bottom:1p
 .cnav[hidden]{display:none!important}
 @media(min-width:900px){.cnav{display:grid}}
 .cnav.prev{left:-14px} .cnav.next{right:-14px}
+/* ---- steps ---- */
+.steps{display:grid;gap:clamp(22px,3vw,40px);border-top:1px solid var(--line)}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{padding-top:22px;border-top:1px solid var(--line)}
+@media(min-width:760px){.step{border-top:0}}
+.step .n{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--fg3)}
+.step .t{font-size:clamp(18px,2vw,23px);font-weight:200;letter-spacing:-.015em;margin:14px 0 9px;color:var(--fg)}
+.step .d{font-size:14px;color:var(--fg2);line-height:1.55}
 /* ---- faq ---- */
 .faqg{border-top:1px solid var(--line);margin-bottom:clamp(30px,5vh,54px)}
 .faqg h3{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
@@ -832,6 +840,60 @@ function pHome(){return `
      <button class="cnav prev" id="cprev" aria-label="Previous products">&lsaquo;</button>
      <div class="cards" id="cards">${DEVICES.map(card).join("")}</div>
      <button class="cnav next" id="cnext" aria-label="More products">&rsaquo;</button>
+   </div>
+ </div></section>
+
+ <section class="sec"><div class="wrap">
+   <div class="shead"><h2 class="h2">Three minutes.<br>Nothing to set.</h2></div>
+   <div class="steps">
+     <div class="step"><span class="n">01</span>
+       <p class="t">Pick the device</p>
+       <p class="d">One device per concern. Nothing to configure and no mode to choose — the protocol is built into the hardware.</p></div>
+     <div class="step"><span class="n">02</span>
+       <p class="t">Hold it, or wear it</p>
+       <p class="d">Press once. It runs the stated sequence, then stops on its own. Three minutes, most of them.</p></div>
+     <div class="step"><span class="n">03</span>
+       <p class="t">The record keeps up</p>
+       <p class="d">Every session writes to one account, shared by the app and every device you own.</p></div>
+   </div>
+ </div></section>
+
+ <section class="sec"><div class="wrap two">
+   <div>
+     <p class="mono" style="margin:0 0 18px">Technology</p>
+     <h2 class="h3">A photograph is a guess.</h2>
+   </div>
+   <div>
+     <p class="body" style="font-size:15px">An image tells you what light bounced off a face. It cannot tell you what is happening in the skin, and its accuracy depends on the lens, the room and the tone of the person holding the phone. The layer we are building takes the reading at the point of contact instead.</p>
+     <p style="margin-top:24px"><a class="btn ghost auto" href="#/technology">The technology <span aria-hidden="true">→</span></a></p>
+   </div>
+ </div></section>
+
+ <section class="sec"><div class="wrap">
+   <div class="shead"><p class="mono" style="margin:0 0 18px">What is actually reaching your skin</p>
+     <h2 class="h3" style="max-width:22ch">Four wavelengths, and one temperature. Published, not implied.</h2></div>
+   <div class="wl">${[["wl-415","415 nm · Blue","For blemish-prone skin."],
+                      ["wl-660","660 nm · Red","Visible red, used at home and in clinic."],
+                      ["wl-1072","1072 nm · Infrared","Outside the visible range."],
+                      ["wl-cold","−5 °C · Cold","A plate held below zero."]]
+     .map(([k,t,d])=>`<div class="wcard"><img src="${ASSETS[k]}" alt="" loading="lazy" width="840" height="840">
+       <span class="wt">${esc(t)}</span><span class="wd">${esc(d)}</span></div>`).join("")}</div>
+   <p style="margin-top:clamp(26px,4vh,42px)"><a class="btn ghost auto" href="#/house">Why we build this way <span aria-hidden="true">→</span></a></p>
+ </div></section>
+
+ <section class="sec"><div class="wrap two">
+   <div>
+     <p class="mono" style="margin:0 0 18px">Questions</p>
+     <h2 class="h3">The things people ask.</h2>
+   </div>
+   <div>
+     <div class="rows" style="border-top:0">
+       ${[["Is it safe near my eyes?","#/faq"],["Does it work the same on darker skin?","#/faq"],["When can I buy one?","#/faq"]]
+         .map(([q,h])=>`<a class="prow" href="${h}" style="grid-template-columns:1fr auto;padding:15px 0">
+           <span class="ds" style="font-size:15px;color:var(--fg)">${esc(q)}</span>
+           <span class="pz"><span class="ar" aria-hidden="true">→</span></span></a>`).join("")}
+     </div>
+     <p style="margin-top:24px"><a class="btn ghost auto" href="#/faq">All questions <span aria-hidden="true">→</span></a></p>
    </div>
  </div></section>
  ${tList()}`}
