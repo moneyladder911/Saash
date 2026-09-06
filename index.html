@@ -317,6 +317,79 @@ textarea.inp{border:1px solid var(--line2);padding:12px;min-height:132px;resize:
 .art.sq{aspect-ratio:4/5}
 .art.tall{aspect-ratio:3/4}
 
+/* ---- product page: at a glance ---- */
+.sub{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--fg2);margin:16px 0 0}
+.glance{border-top:1px solid var(--line);margin-top:30px}
+.glance .r{display:grid;grid-template-columns:minmax(96px,.5fr) 1fr;gap:16px;padding:13px 0;
+  border-bottom:1px solid var(--line)}
+.glance .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--fg3);padding-top:2px}
+.glance .v{font-size:14px;color:var(--fg2);line-height:1.5}
+/* ---- accordions ---- */
+.acc{border-top:1px solid var(--line);margin-top:34px}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{display:flex;justify-content:space-between;align-items:center;gap:18px;
+  padding:19px 0;cursor:pointer;list-style:none;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--fg);transition:color .3s var(--ease)}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary:hover{color:var(--fg2)}
+.acc .pm{position:relative;width:11px;height:11px;flex:0 0 auto}
+.acc .pm::before,.acc .pm::after{content:"";position:absolute;background:var(--fg2);
+  transition:transform .3s var(--ease),opacity .3s var(--ease)}
+.acc .pm::before{left:0;top:5px;width:11px;height:1px}
+.acc .pm::after{top:0;left:5px;width:1px;height:11px}
+.acc details[open] .pm::after{transform:rotate(90deg);opacity:0}
+.acc .in{padding:0 0 24px;max-width:56ch}
+.acc .in p{margin:0 0 13px;font-size:14.5px;line-height:1.65;color:var(--fg2)}
+.acc .in p:last-child{margin-bottom:0}
+.acc .in ol{margin:0;padding:0;list-style:none;counter-reset:s}
+.acc .in ol li{counter-increment:s;position:relative;padding-left:34px;margin-bottom:14px;
+  font-size:14.5px;line-height:1.65;color:var(--fg2)}
+.acc .in ol li:last-child{margin-bottom:0}
+.acc .in ol li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:1px;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--fg3)}
+/* ---- goes with ---- */
+.gw{margin-top:38px}
+.gwh{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:16px}
+@media(max-width:520px){.gwh .hint{display:none}}
+.gwg{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:560px){.gwg{grid-template-columns:repeat(2,1fr)}}
+.gwc{display:flex;gap:14px;align-items:flex-start;background:var(--bg2);border:1px solid var(--line);
+  border-radius:14px;padding:14px;cursor:pointer;transition:border-color .3s var(--ease)}
+.gwc:hover{border-color:var(--line2)}
+.gwc:has(input:checked){border-color:var(--fg2)}
+.gwc img{width:54px;height:54px;flex:0 0 auto;border-radius:9px;background:#F8F8F6;object-fit:cover}
+.gwc .t{flex:1;min-width:0;display:block}
+.gwc .n{display:block;font-size:12.5px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+.gwc .d{display:block;font-size:12.5px;color:var(--fg3);line-height:1.45;margin-top:4px}
+.gwc .p{display:block;font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--fg2);margin-top:7px}
+.gwc input{appearance:none;width:17px;height:17px;flex:0 0 auto;margin:2px 0 0;border-radius:4px;
+  border:1px solid var(--line2);cursor:pointer;position:relative}
+.gwc input:checked{background:var(--fg);border-color:var(--fg)}
+.gwc input:checked::after{content:"";position:absolute;left:5px;top:1.5px;width:5px;height:9px;
+  border:solid var(--bg);border-width:0 1.5px 1.5px 0;transform:rotate(42deg)}
+/* ---- reviews ---- */
+.rev{border-top:1px solid var(--line);padding-top:clamp(34px,5vh,58px)}
+.revtop{display:grid;gap:clamp(24px,3vw,54px);align-items:start;grid-template-columns:1fr}
+@media(min-width:900px){.revtop{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr)}}
+.revno{border:1px solid var(--line);border-radius:16px;padding:clamp(24px,3vw,36px);background:var(--bg2)}
+.revno h4{margin:0 0 14px}
+.revno p{margin:0 0 13px;font-size:14.5px;line-height:1.65;color:var(--fg2);max-width:58ch}
+.revno p:last-child{margin-bottom:0}
+.pol{display:grid;gap:0;margin-top:26px;border-top:1px solid var(--line)}
+.pol div{display:flex;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line);
+  font-size:13.5px;color:var(--fg2);line-height:1.5}
+.pol .x{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--fg3);flex:0 0 auto;
+  width:22px;padding-top:2px}
+.revavg{font-size:clamp(38px,5vw,58px);font-weight:200;letter-spacing:-.03em;line-height:1}
+.revcard{border-bottom:1px solid var(--line);padding:22px 0;display:grid;gap:6px}
+.revcard .hd2{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.revcard .nm{font-size:13.5px;font-weight:500}
+.revcard .wn{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--fg3)}
+.revcard .ti{font-size:15px;color:var(--fg);margin-top:4px}
+.revcard .bd{font-size:14px;color:var(--fg2);line-height:1.6;max-width:64ch}
+.stars{font-size:12px;letter-spacing:.22em;color:var(--fg)}
 /* ---- product page ---- */
 .pgrid{display:grid;gap:clamp(26px,3.6vw,60px);align-items:start}
 @media(min-width:980px){.pgrid{grid-template-columns:minmax(0,.68fr) minmax(0,1.32fr)}
@@ -544,6 +617,112 @@ const DEVICES=[
   proto:[{t:"180s",l:"630 + 415 nm",f:1}],
   art:{kind:"disc",dots:72,pulse:.66}}
 ];
+
+/* Per-product detail. Keyed by device id so DEVICES stays the short list.
+   feels: the at-a-glance strip · benefits/howto/inside: the accordions
+   with: the two products offered alongside it */
+const PDP={
+ blemish:{
+  sub:"The three-minute spot treatment",
+  feels:[["Feels like","Light pressure on one spot, slightly warm"],
+         ["Looks like","Blue for two minutes, then blue and red"],
+         ["Sounds like","Nothing, until one soft tone at the end"],
+         ["Runs for","3 minutes, fixed — you cannot make it longer"],
+         ["FYI","Not a medicine · No clearance held · Not for the eyes"]],
+  benefits:["It treats the spot, not your face. You are not committing an evening to one blemish on your chin.",
+            "The dose is the same every time. If you change your routine and something improves, that is the only way to know it was this and not the four other things you changed the same week.",
+            "It is small enough to live by the sink and quick enough that you will actually use it, which is the part most devices lose on.",
+            "Nothing to set. No modes, no intensity dial, no decision to get wrong at eleven at night."],
+  howto:["Start on clean, dry skin with nothing else on it.",
+         "Hold the head flat against the spot — contact matters more than pressure.",
+         "Press once. Two minutes of blue, then one of blue and red together.",
+         "It stops itself. Once a day is the whole protocol; twice is not better."],
+  inside:["415 nm blue and 660 nm red. Both fixed, because a dose you can change is a dose you cannot compare.",
+          "A sealed optical head that wipes clean, and a USB-C cell that charges in about two hours.",
+          "No heating element anywhere in it. Any warmth you feel is the emitter doing its job, not a hot plate."]},
+
+ "cold-sore":{
+  sub:"The tingle-stage infrared pen",
+  feels:[["Feels like","Almost nothing. Mild warmth at most"],
+         ["Looks like","Nothing — 1072 nm sits outside what eyes register"],
+         ["Sounds like","Silent, then one tone"],
+         ["Runs for","3 minutes, fixed"],
+         ["FYI","Not a medicine · No clearance held · Not an antiviral"]],
+  benefits:["It is built for the window before anything shows, which is the only window anybody actually cares about.",
+            "Pocket-sized and silent, so you can use it the moment you notice — at a desk, in a car, in a hotel. The moment you want it is rarely the moment you are at home.",
+            "The wavelength and the three minutes are not ours. They come from published, double-blind, placebo-controlled research on other devices, and we built to them exactly rather than rounding to something more convenient.",
+            "We did not run those trials and we do not present them as evidence for this device. Our own file is open."],
+  howto:["Use it as early as you can — at the tingle, not at the blister.",
+         "Rest the head against the skin and press once.",
+         "Three minutes of 1072 nm. You will see nothing happen; that is the wavelength behaving normally.",
+         "Wipe the head afterwards. It is the one part that touches you."],
+  inside:["A single 1072 nm near-infrared emitter. One wavelength, one duration, nothing else.",
+          "A wipe-clean head and a USB-C cell sized for a pen you keep in a bag rather than a bathroom.",
+          "Protocol basis: Hargate 2006, Dougal & Lee 2013 — third-party trials on third-party hardware."]},
+
+ "ai-led-mask":{
+  sub:"The hands-free full-face session",
+  feels:[["Feels like","Weight spread across the whole face, no pressure points"],
+         ["Looks like","An even glow through the shell; the eyes stay covered"],
+         ["Sounds like","Silent. The controller counts down"],
+         ["Runs for","10 minutes"],
+         ["FYI","Application in beta · Not a medicine · No clearance held"]],
+  benefits:["Every zone gets the same light at the same distance, which is the one thing a handheld cannot do. Nobody moves a wand evenly and everybody misses the same jawline.",
+            "Your hands are free for ten minutes. That is the difference between a routine you keep and one you abandon in March.",
+            "The session you had tonight is the session you get next week. 213 emitters matters less as a number than as that promise.",
+            "One account across the range. Add a second device and the history carries over instead of starting again."],
+  howto:["Clean, dry skin. Nothing occlusive underneath.",
+         "Sit the mask against your face and clip the strap — it should rest, not clamp.",
+         "Press once on the controller. The application walks you through the zones the first few times, then you stop needing it.",
+         "Ten minutes, then it stops. Wipe the inner face after each session."],
+  inside:["213 triple-diode emitters behind a contoured shell — red, near-infrared and blue.",
+          "A separate controller, because that is where the sensing hardware will live. The mask is the device our measurement work is being built around.",
+          "That measurement layer is in development and does not ship today. When it does, it will say so here and not before."]},
+
+ cryo:{
+  sub:"The cold pass that keeps its cold",
+  feels:[["Feels like","Genuinely cold, and it stays cold"],
+         ["Looks like","Red light under a chilled plate"],
+         ["Sounds like","A faint hum from the cooling stage"],
+         ["Runs for","Not fixed yet — still in development"],
+         ["FYI","In development · No final specification · No date"]],
+  benefits:["Cold that does not give up thirty seconds in. The plate holds −5 °C for the session instead of warming to room temperature like a roller.",
+            "Two steps collapse into one pass: the cold and the red light happen at the same time, not one after the other.",
+            "It feels good on a face that has had four hours of sleep, which is a real reason to own something.",
+            "It is in development. We are not quoting a final specification, a price we can hold, or a date — and we would rather say that than invent one."],
+  howto:["Cryo has not been finalised, so this is the intent rather than the instruction.",
+         "A cooled plate held flat and moved slowly across the areas that hold fluid overnight.",
+         "Red light runs underneath for the whole pass.",
+         "The finished protocol will be published here before anything ships."],
+  inside:["A −5 °C plate and 660 nm red in a single handheld body.",
+          "Costing is in progress, which is the honest reason the price on this page can still move.",
+          "Nothing about this device is tooled yet."]},
+
+ carry:{
+  sub:"The session that travels with you",
+  feels:[["Feels like","A disc on the back of your phone; you forget it is there"],
+         ["Looks like","Red and blue against the skin"],
+         ["Sounds like","Silent"],
+         ["Runs for","3 minutes, fixed"],
+         ["FYI","In development · No price yet · Not an Apple product"]],
+  benefits:["Every routine dies the same way: you travel, you break the chain, you never quite pick it back up. This is the answer to that.",
+            "It lives on the phone already in your pocket, so a hotel room or an airport lounge is as good as your bathroom.",
+            "The same fixed three minutes as the rest of the range — the point is that the session does not change just because you did.",
+            "In development, and priced when we are certain. It is not for sale today."],
+  howto:["Snap it to the magnetic array on the back of your phone.",
+         "Hold the phone against the area for the session.",
+         "Three minutes of 630 nm red and 415 nm blue, then it stops.",
+         "Charges from the same USB-C cable as everything else in the range."],
+  inside:["630 nm red and 415 nm blue in a magnetic disc.",
+          "It attaches to the magnetic array standard to recent phones. It is not an Apple product and is not affiliated with, or endorsed by, Apple Inc.",
+          "In development. Nothing here is a final specification."]}
+};
+const WITH={blemish:["ai-led-mask","carry"],"cold-sore":["carry","blemish"],
+            "ai-led-mask":["blemish","cryo"],cryo:["ai-led-mask","carry"],carry:["blemish","cold-sore"]};
+
+/* Reviews. Empty until real ones exist — see pReviews() for the standing policy.
+   Populate as: REVIEWS["blemish"]=[{name,stars,title,body,when,verified,skin}] */
+const REVIEWS={};
 
 const HERO_SRC="";  // paste a data:image/... URI (or data:video/mp4) here to replace the hero
 const FILM_SRC="";  // paste a data:video/mp4;base64,… URI here and the film goes live
@@ -937,9 +1116,75 @@ function pDevices(){return `
  </div></section>
  ${tList()}`}
 
+const accBlock=(pd,d)=>{
+ const items=[["Benefits",`<div class="in">${pd.benefits.map(x=>`<p>${esc(x)}</p>`).join("")}</div>`],
+   ["How to use it",`<div class="in"><ol>${pd.howto.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>`],
+   ["What is in it",`<div class="in">${pd.inside.map(x=>`<p>${esc(x)}</p>`).join("")}</div>`],
+   ["Full specification",`<div class="in">${dl(d.spec)}</div>`],
+   ["Care, returns and warranty",`<div class="in"><p>Wipe the head or inner face after every session — it is the part that touches you. Nothing in the range goes in water.</p><p>Two-year warranty against defects, and thirty days to change your mind from the day it arrives. Rechargeable cells lose capacity with use; a battery that has aged is not a defect.</p><p>Read the <a href="#/returns" style="text-decoration:underline">returns policy</a> and the <a href="#/warranty" style="text-decoration:underline">warranty</a> in full.</p></div>`]];
+ return `<div class="acc">${items.map(([t,c])=>
+   `<details><summary>${t}<span class="pm" aria-hidden="true"></span></summary>${c}</details>`).join("")}</div>`};
+
+const goesWith=d=>{
+ const ids=(WITH[d.id]||[]).map(i=>DEVICES.find(x=>x.id===i)).filter(Boolean);
+ if(!ids.length) return "";
+ return `<div class="gw">
+   <div class="gwh"><p class="mono" style="margin:0">Goes with</p>
+     <span class="mono sm hint" style="color:var(--fg3)">Adds to your reservation</span></div>
+   <div class="gwg">${ids.map(x=>`<label class="gwc">
+     <img src="${ASSETS["card-"+x.id]}" alt="" aria-hidden="true" loading="lazy" width="108" height="108">
+     <span class="t"><span class="n">${esc(x.name)}</span>
+       <span class="d">${esc(x.tag)}</span>
+       <span class="p">${x.usd?"$"+fmt(x.usd):"Price to come"}</span></span>
+     <input type="checkbox" data-gw="${x.id}"${x.usd?"":" disabled"} aria-label="Add ${esc(x.name)}">
+   </label>`).join("")}</div>
+   <div style="margin-top:16px;max-width:420px">
+     <button class="btn ghost" id="gwadd" disabled>Add selected</button></div>
+ </div>`};
+
+function pReviews(d){
+ const rs=REVIEWS[d.id]||[];
+ if(!rs.length) return `
+ <section class="sec"><div class="wrap"><div class="rev">
+   ${eyerule("Reviews")}
+   <div class="revtop" style="margin-top:30px">
+     <div><h3 class="h3">No reviews yet,<br>because nothing has shipped.</h3>
+       <p class="mono sm" style="margin:20px 0 0;color:var(--fg3)">${d.code} · ${esc(d.status)}</p></div>
+     <div class="revno">
+       <h4 class="h4">What you will read here</h4>
+       <p>The first units go to the early access list. From the day they arrive, this is where what those people thought of ${esc(d.name)} gets published — and here is the standing rule, written down before we have anything to lose by it.</p>
+       <div class="pol">
+         <div><span class="x">01</span><span>Verified purchases only. If it was not bought, it does not appear.</span></div>
+         <div><span class="x">02</span><span>Published as written. We correct nothing but a libel risk, and we say when we have.</span></div>
+         <div><span class="x">03</span><span>Sorted by date, never by score. The one-star review sits where it falls.</span></div>
+         <div><span class="x">04</span><span>Nothing is gifted in exchange for a rating, and no review is ever paid for.</span></div>
+         <div><span class="x">05</span><span>Nothing is removed for being negative. If a device disappoints people, that belongs on its own page.</span></div>
+       </div>
+       <p style="margin-top:24px">Until then this space stays empty. A pre-launch brand with a wall of five-star reviews is telling you something, and it is not about the product.</p>
+     </div>
+   </div>
+ </div></div></section>`;
+ const avg=(rs.reduce((n,r)=>n+r.stars,0)/rs.length).toFixed(1);
+ const st=n=>`<span class="stars" aria-label="${n} out of 5">${"★".repeat(n)}${"☆".repeat(5-n)}</span>`;
+ return `
+ <section class="sec"><div class="wrap"><div class="rev">
+   ${eyerule("Reviews")}
+   <div class="revtop" style="margin-top:30px">
+     <div><div class="revavg tnum">${avg}</div>${st(Math.round(avg))}
+       <p class="mono sm" style="margin:14px 0 0;color:var(--fg3)">${rs.length} verified ${rs.length===1?"review":"reviews"} · newest first</p></div>
+     <div>${rs.map(r=>`<div class="revcard">
+       <div class="hd2"><span class="nm">${esc(r.name)}${r.verified?' <span class="mono sm" style="color:var(--fg3)">Verified</span>':""}</span>
+         <span class="wn">${esc(r.when||"")}</span></div>
+       ${st(r.stars)}
+       ${r.title?`<div class="ti">${esc(r.title)}</div>`:""}
+       <div class="bd">${esc(r.body)}</div>
+     </div>`).join("")}</div>
+   </div>
+ </div></div></section>`}
+
 function pDevice(id){
  const d=DEVICES.find(x=>x.id===id); if(!d) return p404();
- const n=DEVICES[(DEVICES.indexOf(d)+1)%DEVICES.length];
+ const pd=PDP[d.id]; const n=DEVICES[(DEVICES.indexOf(d)+1)%DEVICES.length];
  return `
  <div class="wrap" style="padding-top:clamp(30px,5vh,58px)">
    ${eyerule(d.code+" · "+d.status)}
@@ -947,22 +1192,24 @@ function pDevice(id){
      <div class="sticky rise">${shotPlain(d,"tall")}</div>
      <div class="rise2">
        <h1 class="h2">${esc(d.name)}</h1>
-       <p class="mono" style="margin:18px 0 0;color:var(--fg2)">For ${esc(d.use)}</p>
-       <p class="mono tnum" style="margin:14px 0 26px;color:var(--fg)">${price(d.usd)}</p>
-       <p class="lede">${esc(d.lede)}</p>
-       ${d.proto?`<div class="proto">${d.proto.map(p=>`<div class="p" style="--f:${p.f}"><div class="t tnum">${esc(p.t)}</div><div class="l">${esc(p.l)}</div></div>`).join("")}</div>
-        <p class="mono sm" style="margin:0 0 26px;color:var(--fg3)">Session protocol</p>`:""}
-       <div class="body" style="margin-top:22px">${d.body.map(x=>`<p>${esc(x)}</p>`).join("")}</div>
-       ${dl(d.spec)}
-       <div style="margin-top:30px;max-width:420px">
+       <p class="sub">${esc(pd?pd.sub:d.tag)}</p>
+       <p class="lede" style="margin-top:26px">${esc(d.lede)}</p>
+       <p class="mono tnum" style="margin:26px 0 0;color:var(--fg)">${price(d.usd)}</p>
+       <div style="margin-top:22px;max-width:420px">
          ${d.usd?`<button class="btn" data-add="${d.id}">Reserve — no charge</button>`
            :`<a class="btn ghost" href="#/contact">Register interest</a>`}
        </div>
-       <p class="mono sm" style="margin-top:16px;color:var(--fg3);line-height:1.7">Not available for purchase · No clearance held · <a href="#/regulatory" style="text-decoration:underline">Regulatory</a></p>
+       <p class="mono sm" style="margin-top:14px;color:var(--fg3);line-height:1.7">Not available for purchase · No clearance held · <a href="#/regulatory" style="text-decoration:underline">Regulatory</a></p>
+       ${d.proto?`<div class="proto" style="margin-top:30px">${d.proto.map(p=>`<div class="p" style="--f:${p.f}"><div class="t tnum">${esc(p.t)}</div><div class="l">${esc(p.l)}</div></div>`).join("")}</div>
+        <p class="mono sm" style="margin:0;color:var(--fg3)">Session protocol</p>`:""}
+       ${pd?`<div class="glance">${pd.feels.map(([k,v])=>`<div class="r"><span class="k">${esc(k)}</span><span class="v">${esc(v)}</span></div>`).join("")}</div>`:""}
+       ${pd?accBlock(pd,d):dl(d.spec)}
+       ${goesWith(d)}
      </div>
    </div>
  </div>
- <section class="sec" style="margin-top:clamp(34px,6vh,70px)"><div class="wrap">
+ ${pReviews(d)}
+ <section class="sec"><div class="wrap">
    <div class="rows" style="border-top:0">
      <a class="prow" href="#/product/${n.id}" style="border-bottom:0">
        <span class="code">${n.code}</span><span class="nm">${esc(n.name)}</span>
@@ -1211,6 +1458,17 @@ function render(){
     document.getElementById("cprev").addEventListener("click",()=>cards.scrollBy({left:-step(),behavior:"smooth"}));
     document.getElementById("cnext").addEventListener("click",()=>cards.scrollBy({left:step(),behavior:"smooth"}));
     cards.addEventListener("scroll",sync,{passive:true}); sync();
+  }
+  const gwb=document.getElementById("gwadd");
+  if(gwb){
+    const boxes=[...app.querySelectorAll("[data-gw]")];
+    const sync=()=>{const n=boxes.filter(b=>b.checked).length;
+      gwb.disabled=!n; gwb.textContent=n?`Add ${n} to reservation`:"Add selected"};
+    boxes.forEach(b=>b.addEventListener("change",sync));
+    gwb.addEventListener("click",()=>{
+      boxes.filter(b=>b.checked).forEach(b=>{addToBag(b.getAttribute("data-gw"));b.checked=false});
+      sync()});
+    sync();
   }
   app.querySelectorAll(".shot.sw").forEach(el=>
     el.addEventListener("click",()=>el.classList.toggle("on")));
