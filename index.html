@@ -468,7 +468,7 @@ const AED=3.6725, fmt=n=>n.toLocaleString("en-US");
 const price=usd=>usd==null?"On announcement":"USD "+fmt(usd)+" · AED "+fmt(Math.round(usd*AED/5)*5);
 
 const DEVICES=[
- {id:"blemish",cat:"blemish",tag:"Blue light, three minutes",code:"SA—01",name:"Blemish",usd:170,status:"Production sampling",
+ {id:"blemish",cat:"blemish",tag:"For breakouts and congested skin",code:"SA—01",name:"Blemish",usd:170,status:"Production sampling",
   use:"Blemish-prone and congested skin",
   short:"For blemish-prone skin. Three minutes of blue, then blue with red.",
   lede:"A three-minute targeted treatment built around 415 nanometres, closing with a minute of blue and red together.",
@@ -479,7 +479,7 @@ const DEVICES=[
   proto:[{t:"120s",l:"415 nm",f:2},{t:"60s",l:"415 + 660 nm",f:1}],
   art:{kind:"ring",rings:3,dots:96,pulse:.9}},
 
- {id:"cold-sore",cat:"cold sore",tag:"1072nm, three minutes",code:"SA—02",name:"Cold Sore",usd:190,status:"Production sampling",
+ {id:"cold-sore",cat:"cold sore",tag:"For cold sores, at the first tingle",code:"SA—02",name:"Cold Sore",usd:190,status:"Production sampling",
   use:"Cold sores, from the first tingle",
   short:"For cold sores. Three minutes of 1072nm infrared.",
   lede:"Built to a 1072nm infrared protocol examined in double-blind, placebo-controlled research — published by others, on other devices.",
@@ -490,7 +490,7 @@ const DEVICES=[
   proto:[{t:"180s",l:"1072 nm",f:1}],
   art:{kind:"ring",rings:2,dots:64,pulse:.42}},
 
- {id:"ai-led-mask",cat:"mask",tag:"213 emitters, full face",code:"SA—03",name:"AI LED Mask",usd:790,status:"Production sampling",
+ {id:"ai-led-mask",cat:"mask",tag:"Full face, every zone at once",code:"SA—03",name:"AI LED Mask",usd:790,status:"Production sampling",
   use:"Full-face treatment, tone and fine lines",
   short:"Full face. 213 triple-diode emitters, app-guided zones.",
   lede:"Two hundred and thirteen triple-diode emitters across the face, with the application guiding treatment zone by zone.",
@@ -501,7 +501,7 @@ const DEVICES=[
         ["Format","Contoured mask and controller"],["Application","Beta; production release ahead of launch"],["Status","Tooled, in production sampling"]],
   proto:null, art:{kind:"mask",dots:213,pulse:.7}},
 
- {id:"cryo",cat:"cryo",tag:"Cold and red light",code:"SA—04",name:"Cryo",usd:350,status:"In development",
+ {id:"cryo",cat:"cryo",tag:"For puffiness and hot, irritated skin",code:"SA—04",name:"Cryo",usd:350,status:"In development",
   use:"Puffiness and skin that needs calming",
   short:"Cooling to −5°C with red light, for puffiness.",
   lede:"A cooled applicator holding −5°C against the skin while 660nm red light runs underneath it.",
@@ -511,7 +511,7 @@ const DEVICES=[
         ["Costing","In progress"],["Status","In development"]],
   proto:null, art:{kind:"cryo",dots:120,pulse:.5}},
 
- {id:"carry",cat:"carry",tag:"Treatment on the phone",code:"SA—05",name:"Carry",usd:null,status:"In development",
+ {id:"carry",cat:"carry",tag:"Treatment that travels",code:"SA—05",name:"Carry",usd:null,status:"In development",
   use:"Treatment away from home",
   short:"Phone-mounted. Three minutes wherever you are.",
   lede:"A disc that mounts magnetically to the back of a phone, so the three-minute session travels with the thing already in your hand.",
@@ -811,7 +811,7 @@ function pHome(){return `
  ${tHero()}
  ${tFilm()}
  <section class="sec flush"><div class="wrap">
-   <div class="shead"><h2 class="h2">Five products through 2027.</h2></div>
+   <div class="shead"><h2 class="h2">One device per concern.</h2></div>
  </div>
  <div class="wrap">
    <div class="cardswrap">
