@@ -776,13 +776,13 @@ const eyerule=t=>`<div class="eyerule"><span class="mono">${esc(t)}</span><span 
 
 function tList(){return `
  <section class="sec list"><div class="wrap">
-   <p class="mono" style="margin:0 0 18px">The list</p>
-   <h3 class="h3">We write when a device clears in your market. Nothing else.</h3>
+   <p class="mono" style="margin:0 0 18px">Early access</p>
+   <h3 class="h3">The first units go to the list.</h3>
    <form class="fieldset" id="nl" style="margin-top:30px" novalidate>
      <div class="fld"><label class="mono sm" for="nle">Email</label>
        <input class="inp" id="nle" name="email" type="email" placeholder="you@example.com" autocomplete="email" required></div>
-     <button class="btn" type="submit">Sign up</button>
-     <p class="mono sm" style="margin:0;color:var(--fg3)">One or two emails a year · Unsubscribe in one click</p>
+     <button class="btn" type="submit">Join the list</button>
+     <p class="mono sm" style="margin:0;color:var(--fg3)">A few emails a year · Nothing in between · Unsubscribe in one click</p>
      <p class="msg" id="nlm" role="status" aria-live="polite"></p>
    </form>
  </div></section>`}
@@ -1164,7 +1164,7 @@ function render(){
   }
   app.querySelectorAll("[data-add]").forEach(b=>
     b.addEventListener("click",()=>addToBag(b.getAttribute("data-add"))));
-  wire("nl","nlm","Signed up · we will write when a device clears.");
+  wire("nl","nlm","You are on the list.");
   wire("cf","cfm","Sent · we reply within two working days.");
   scrollTo({top:0,behavior:"instant"});
 }
