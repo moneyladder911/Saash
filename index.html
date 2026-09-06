@@ -320,25 +320,25 @@ textarea.inp{border:1px solid var(--line2);padding:12px;min-height:132px;resize:
 /* ---- product page: at a glance ---- */
 .sub{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
   color:var(--fg2);margin:16px 0 0}
-.glance{border-top:1px solid var(--line);margin-top:30px}
+.glance{border-top:1px solid var(--line);margin-top:30px;max-width:620px}
 .glance .r{display:grid;grid-template-columns:minmax(96px,.5fr) 1fr;gap:16px;padding:13px 0;
   border-bottom:1px solid var(--line)}
 .glance .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
   color:var(--fg3);padding-top:2px}
 .glance .v{font-size:14px;color:var(--fg2);line-height:1.5}
 /* ---- accordions ---- */
-.acc{border-top:1px solid var(--line);margin-top:34px}
+.acc{border-top:1px solid var(--line2);margin-top:52px;max-width:620px}
 .acc details{border-bottom:1px solid var(--line)}
 .acc summary{display:flex;justify-content:space-between;align-items:center;gap:18px;
-  padding:19px 0;cursor:pointer;list-style:none;font-family:var(--mono);font-size:10.5px;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--fg);transition:color .3s var(--ease)}
+  padding:21px 0;cursor:pointer;list-style:none;font-size:clamp(16px,1.5vw,18.5px);
+  font-weight:300;letter-spacing:-.014em;color:var(--fg);transition:color .3s var(--ease)}
 .acc summary::-webkit-details-marker{display:none}
 .acc summary:hover{color:var(--fg2)}
-.acc .pm{position:relative;width:11px;height:11px;flex:0 0 auto}
-.acc .pm::before,.acc .pm::after{content:"";position:absolute;background:var(--fg2);
+.acc .pm{position:relative;width:13px;height:13px;flex:0 0 auto}
+.acc .pm::before,.acc .pm::after{content:"";position:absolute;background:var(--fg);
   transition:transform .3s var(--ease),opacity .3s var(--ease)}
-.acc .pm::before{left:0;top:5px;width:11px;height:1px}
-.acc .pm::after{top:0;left:5px;width:1px;height:11px}
+.acc .pm::before{left:0;top:6px;width:13px;height:1px}
+.acc .pm::after{top:0;left:6px;width:1px;height:13px}
 .acc details[open] .pm::after{transform:rotate(90deg);opacity:0}
 .acc .in{padding:0 0 24px;max-width:56ch}
 .acc .in p{margin:0 0 13px;font-size:14.5px;line-height:1.65;color:var(--fg2)}
