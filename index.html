@@ -1,3 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Light treatments, three minutes at home. Five devices for blemish-prone skin, cold sores and full-face care, each running one stated wavelength for one stated time.">
+<meta name="theme-color" content="#0A0A0B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23F2F2F0' stroke-width='1.4'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%23F2F2F0'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAASH">
+<meta property="og:title" content="SAASH — Light treatments, three minutes at home">
+<meta property="og:description" content="Light treatments, three minutes at home. Five devices for blemish-prone skin, cold sores and full-face care, each running one stated wavelength for one stated time.">
+<meta property="og:image" content="og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SAASH — Light treatments, three minutes at home">
+<meta name="twitter:description" content="Light treatments, three minutes at home. Five devices for blemish-prone skin, cold sores and full-face care, each running one stated wavelength for one stated time.">
+<meta name="twitter:image" content="og.png">
+<style>*{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>SAASH</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -5,7 +25,7 @@
 <style>
 :root{
   --bg:#0A0A0B; --bg2:#0E0E10; --line:#1E1E20; --line2:#2A2A2D;
-  --fg:#F2F2F0; --fg2:#9C9C9E; --fg3:#6A6A6C;
+  --fg:#F2F2F0; --fg2:#9C9C9E; --fg3:#79797B;
   --btn:#F2F2F0; --btn-fg:#0A0A0B;
   --sans:"Inter",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -144,7 +164,7 @@ header.hd{position:sticky;top:0;z-index:70;background:var(--bg);border-bottom:1p
   background:#12120F;color:#F8F8F6;border-radius:999px;padding:5px 10px;white-space:nowrap;flex:0 0 auto}
 .pshot{margin:2px -6px 16px}
 .pshot img{display:block;width:100%;height:auto}
-.pstat{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#8E8E85}
+.pstat{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#72726A}
 .pcrow{display:flex;justify-content:space-between;gap:14px;align-items:baseline;margin-top:9px}
 .pname{font-size:13.5px;font-weight:600;letter-spacing:.015em;text-transform:uppercase}
 .pprice{font-size:13.5px;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -206,7 +226,7 @@ header.hd{position:sticky;top:0;z-index:70;background:var(--bg);border-bottom:1p
 .film{position:relative;background:#F7F7F5;border-block:1px solid var(--line);aspect-ratio:16/9;overflow:hidden}
 .film video,.film img{display:block;width:100%;height:100%;object-fit:cover}
 .filmcap{position:absolute;left:var(--pad);bottom:20px;font-family:var(--mono);font-size:9.5px;
-  letter-spacing:.2em;text-transform:uppercase;color:#7A7A78}
+  letter-spacing:.2em;text-transform:uppercase;color:#6E6E66}
 @media(max-width:700px){.film{aspect-ratio:4/3}}
 /* ---- contact ---- */
 .routes{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -233,7 +253,7 @@ textarea.inp{border:1px solid var(--line2);padding:12px;min-height:132px;resize:
 .shot.tall{max-width:360px}
 .shot.port{aspect-ratio:1/1;max-width:170px}
 .shot .cap{position:absolute;left:16px;bottom:13px;font-family:var(--mono);font-size:8.5px;
-  letter-spacing:.18em;text-transform:uppercase;color:#8E8E85}
+  letter-spacing:.18em;text-transform:uppercase;color:#72726A}
 .band{display:grid;grid-template-columns:repeat(5,1fr);background:#F7F7F5;border-block:1px solid var(--line)}
 .band a{display:block;position:relative;border-right:1px solid rgba(10,10,11,.07);transition:opacity .4s var(--ease)}
 .band a:last-child{border-right:0}
@@ -365,6 +385,8 @@ footer{border-top:1px solid var(--line);padding:clamp(44px,7vh,84px) 0 38px}
 
 <div class="anno"><div class="wrap"><span class="msg" id="anno">Complimentary delivery worldwide</span></div></div>
 
+</head>
+<body>
 <header class="hd">
   <div class="wrap hdin">
     <a class="mark" href="#/" aria-label="SAASH home">SAASH</a>
@@ -1046,3 +1068,6 @@ document.getElementById("fdev").innerHTML=DEVICES.map(d=>`<a href="#/device/${d.
 addEventListener("hashchange",render);
 paintBag(); render();
 </script>
+
+</body>
+</html>

@@ -40,3 +40,15 @@ Netlify or Vercel: connect the repo, leave the build command empty, publish dire
 Independent diligence on the investor deck — two adversarial passes, eleven
 research agents, all claims verified against public sources. Start with
 `SAASH_Verdict_Summary.pdf` (3 pages).
+
+## Files
+
+| File | What |
+|---|---|
+| `index.html` | the entire site — open it in a browser, no build step |
+| `og.png` | the 1200x630 card shown when the link is shared |
+| `docs/` | independent diligence on the investor deck |
+
+**Before the domain goes live:** the Open Graph tags reference `og.png` relatively.
+Once you have a domain, make them absolute (`https://yourdomain.com/og.png`) —
+some scrapers, WhatsApp among them, will not resolve a relative image.
